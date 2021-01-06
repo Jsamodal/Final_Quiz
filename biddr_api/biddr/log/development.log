@@ -1,0 +1,1254 @@
+  [1m[35m (719.0ms)[0m  [1m[35mCREATE DATABASE "biddr_development" ENCODING = 'unicode'[0m
+  [1m[35m (246.3ms)[0m  [1m[35mCREATE DATABASE "biddr_test" ENCODING = 'unicode'[0m
+  [1m[35m (97.9ms)[0m  [1m[35mCREATE TABLE "schema_migrations" ("version" character varying NOT NULL PRIMARY KEY)[0m
+  [1m[35m (6.5ms)[0m  [1m[35mCREATE TABLE "ar_internal_metadata" ("key" character varying NOT NULL PRIMARY KEY, "value" character varying, "created_at" timestamp(6) NOT NULL, "updated_at" timestamp(6) NOT NULL)[0m
+  [1m[35m (1.4ms)[0m  [1m[34mSELECT pg_try_advisory_lock(7998245229184738815)[0m
+  [1m[35m (1.8ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Migrating to CreateAuctions (20210106173113)
+  [1m[35m (22.4ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (8.8ms)[0m  [1m[35mCREATE TABLE "auctions" ("id" bigserial primary key, "title" character varying, "body" character varying, "amount" integer, "created_at" timestamp(6) NOT NULL, "updated_at" timestamp(6) NOT NULL)[0m
+  [1m[36mprimary::SchemaMigration Create (3.2ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20210106173113"]]
+  [1m[35m (0.5ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.4ms)[0m  [1m[34mSELECT "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mActiveRecord::InternalMetadata Create (1.6ms)[0m  [1m[32mINSERT INTO "ar_internal_metadata" ("key", "value", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "key"[0m  [["key", "environment"], ["value", "development"], ["created_at", "2021-01-06 17:43:33.836749"], ["updated_at", "2021-01-06 17:43:33.836749"]]
+  [1m[35m (0.5ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT pg_advisory_unlock(7998245229184738815)[0m
+  [1m[35m (1.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Started GET "/" for ::1 at 2021-01-06 09:47:52 -0800
+Started GET "/" for ::1 at 2021-01-06 09:48:12 -0800
+Started GET "/v1/auctions" for ::1 at 2021-01-06 09:49:11 -0800
+Started GET "/v1/auctions" for ::1 at 2021-01-06 09:49:11 -0800
+Started GET "/" for ::1 at 2021-01-06 09:49:11 -0800
+  [1m[35m (1.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.8ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  
+ActionController::RoutingError (No route matches [GET] "/v1/auctions"):
+  
+actionpack (6.0.3.4) lib/action_dispatch/middleware/debug_exceptions.rb:36:in `call'
+actionpack (6.0.3.4) lib/action_dispatch/middleware/show_exceptions.rb:33:in `call'
+railties (6.0.3.4) lib/rails/rack/logger.rb:37:in `call_app'
+railties (6.0.3.4) lib/rails/rack/logger.rb:26:in `block in call'
+activesupport (6.0.3.4) lib/active_support/tagged_logging.rb:80:in `block in tagged'
+activesupport (6.0.3.4) lib/active_support/tagged_logging.rb:28:in `tagged'
+activesupport (6.0.3.4) lib/active_support/tagged_logging.rb:80:in `tagged'
+railties (6.0.3.4) lib/rails/rack/logger.rb:26:in `call'
+actionpack (6.0.3.4) lib/action_dispatch/middleware/remote_ip.rb:81:in `call'
+actionpack (6.0.3.4) lib/action_dispatch/middleware/request_id.rb:27:in `call'
+rack (2.2.3) lib/rack/runtime.rb:22:in `call'
+activesupport (6.0.3.4) lib/active_support/cache/strategy/local_cache_middleware.rb:29:in `call'
+actionpack (6.0.3.4) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (6.0.3.4) lib/action_dispatch/middleware/static.rb:126:in `call'
+rack (2.2.3) lib/rack/sendfile.rb:110:in `call'
+actionpack (6.0.3.4) lib/action_dispatch/middleware/host_authorization.rb:82:in `call'
+railties (6.0.3.4) lib/rails/engine.rb:527:in `call'
+puma (4.3.7) lib/puma/configuration.rb:228:in `call'
+puma (4.3.7) lib/puma/server.rb:713:in `handle_request'
+puma (4.3.7) lib/puma/server.rb:472:in `process_client'
+puma (4.3.7) lib/puma/server.rb:328:in `block in run'
+puma (4.3.7) lib/puma/thread_pool.rb:134:in `block in spawn_thread'
+  [1m[35m (8.7ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by Rails::WelcomeController#index as HTML
+Processing by Rails::WelcomeController#index as HTML
+  Rendering /Users/jrsamodal/.rvm/gems/ruby-2.7.2/gems/railties-6.0.3.4/lib/rails/templates/rails/welcome/index.html.erb
+  Rendering /Users/jrsamodal/.rvm/gems/ruby-2.7.2/gems/railties-6.0.3.4/lib/rails/templates/rails/welcome/index.html.erb
+  Rendered /Users/jrsamodal/.rvm/gems/ruby-2.7.2/gems/railties-6.0.3.4/lib/rails/templates/rails/welcome/index.html.erb (Duration: 10.2ms | Allocations: 917)
+Completed 200 OK in 32ms (Views: 20.7ms | ActiveRecord: 0.0ms | Allocations: 4156)
+
+
+  Rendered /Users/jrsamodal/.rvm/gems/ruby-2.7.2/gems/railties-6.0.3.4/lib/rails/templates/rails/welcome/index.html.erb (Duration: 10.9ms | Allocations: 847)
+Completed 200 OK in 31ms (Views: 23.3ms | ActiveRecord: 0.0ms | Allocations: 3960)
+
+
+Started GET "/favicon.ico" for ::1 at 2021-01-06 09:49:12 -0800
+  
+ActionController::RoutingError (No route matches [GET] "/favicon.ico"):
+  
+actionpack (6.0.3.4) lib/action_dispatch/middleware/debug_exceptions.rb:36:in `call'
+actionpack (6.0.3.4) lib/action_dispatch/middleware/show_exceptions.rb:33:in `call'
+railties (6.0.3.4) lib/rails/rack/logger.rb:37:in `call_app'
+railties (6.0.3.4) lib/rails/rack/logger.rb:26:in `block in call'
+activesupport (6.0.3.4) lib/active_support/tagged_logging.rb:80:in `block in tagged'
+activesupport (6.0.3.4) lib/active_support/tagged_logging.rb:28:in `tagged'
+activesupport (6.0.3.4) lib/active_support/tagged_logging.rb:80:in `tagged'
+railties (6.0.3.4) lib/rails/rack/logger.rb:26:in `call'
+actionpack (6.0.3.4) lib/action_dispatch/middleware/remote_ip.rb:81:in `call'
+actionpack (6.0.3.4) lib/action_dispatch/middleware/request_id.rb:27:in `call'
+rack (2.2.3) lib/rack/runtime.rb:22:in `call'
+activesupport (6.0.3.4) lib/active_support/cache/strategy/local_cache_middleware.rb:29:in `call'
+actionpack (6.0.3.4) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (6.0.3.4) lib/action_dispatch/middleware/static.rb:126:in `call'
+rack (2.2.3) lib/rack/sendfile.rb:110:in `call'
+actionpack (6.0.3.4) lib/action_dispatch/middleware/host_authorization.rb:82:in `call'
+railties (6.0.3.4) lib/rails/engine.rb:527:in `call'
+puma (4.3.7) lib/puma/configuration.rb:228:in `call'
+puma (4.3.7) lib/puma/server.rb:713:in `handle_request'
+puma (4.3.7) lib/puma/server.rb:472:in `process_client'
+puma (4.3.7) lib/puma/server.rb:328:in `block in run'
+puma (4.3.7) lib/puma/thread_pool.rb:134:in `block in spawn_thread'
+Started GET "/v1/auctions" for ::1 at 2021-01-06 09:49:43 -0800
+Started GET "/v1/auctions" for ::1 at 2021-01-06 09:50:47 -0800
+Started GET "/v1/auctions" for ::1 at 2021-01-06 09:50:47 -0800
+  
+ActionController::RoutingError (No route matches [GET] "/v1/auctions"):
+  
+actionpack (6.0.3.4) lib/action_dispatch/middleware/debug_exceptions.rb:36:in `call'
+actionpack (6.0.3.4) lib/action_dispatch/middleware/show_exceptions.rb:33:in `call'
+railties (6.0.3.4) lib/rails/rack/logger.rb:37:in `call_app'
+railties (6.0.3.4) lib/rails/rack/logger.rb:26:in `block in call'
+activesupport (6.0.3.4) lib/active_support/tagged_logging.rb:80:in `block in tagged'
+activesupport (6.0.3.4) lib/active_support/tagged_logging.rb:28:in `tagged'
+activesupport (6.0.3.4) lib/active_support/tagged_logging.rb:80:in `tagged'
+railties (6.0.3.4) lib/rails/rack/logger.rb:26:in `call'
+actionpack (6.0.3.4) lib/action_dispatch/middleware/remote_ip.rb:81:in `call'
+actionpack (6.0.3.4) lib/action_dispatch/middleware/request_id.rb:27:in `call'
+rack (2.2.3) lib/rack/runtime.rb:22:in `call'
+activesupport (6.0.3.4) lib/active_support/cache/strategy/local_cache_middleware.rb:29:in `call'
+actionpack (6.0.3.4) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (6.0.3.4) lib/action_dispatch/middleware/static.rb:126:in `call'
+rack (2.2.3) lib/rack/sendfile.rb:110:in `call'
+actionpack (6.0.3.4) lib/action_dispatch/middleware/host_authorization.rb:82:in `call'
+railties (6.0.3.4) lib/rails/engine.rb:527:in `call'
+puma (4.3.7) lib/puma/configuration.rb:228:in `call'
+puma (4.3.7) lib/puma/server.rb:713:in `handle_request'
+puma (4.3.7) lib/puma/server.rb:472:in `process_client'
+puma (4.3.7) lib/puma/server.rb:328:in `block in run'
+puma (4.3.7) lib/puma/thread_pool.rb:134:in `block in spawn_thread'
+  
+ActionController::RoutingError (No route matches [GET] "/v1/auctions"):
+  
+actionpack (6.0.3.4) lib/action_dispatch/middleware/debug_exceptions.rb:36:in `call'
+actionpack (6.0.3.4) lib/action_dispatch/middleware/show_exceptions.rb:33:in `call'
+railties (6.0.3.4) lib/rails/rack/logger.rb:37:in `call_app'
+railties (6.0.3.4) lib/rails/rack/logger.rb:26:in `block in call'
+activesupport (6.0.3.4) lib/active_support/tagged_logging.rb:80:in `block in tagged'
+activesupport (6.0.3.4) lib/active_support/tagged_logging.rb:28:in `tagged'
+activesupport (6.0.3.4) lib/active_support/tagged_logging.rb:80:in `tagged'
+railties (6.0.3.4) lib/rails/rack/logger.rb:26:in `call'
+actionpack (6.0.3.4) lib/action_dispatch/middleware/remote_ip.rb:81:in `call'
+actionpack (6.0.3.4) lib/action_dispatch/middleware/request_id.rb:27:in `call'
+rack (2.2.3) lib/rack/runtime.rb:22:in `call'
+activesupport (6.0.3.4) lib/active_support/cache/strategy/local_cache_middleware.rb:29:in `call'
+actionpack (6.0.3.4) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (6.0.3.4) lib/action_dispatch/middleware/static.rb:126:in `call'
+rack (2.2.3) lib/rack/sendfile.rb:110:in `call'
+actionpack (6.0.3.4) lib/action_dispatch/middleware/host_authorization.rb:82:in `call'
+railties (6.0.3.4) lib/rails/engine.rb:527:in `call'
+puma (4.3.7) lib/puma/configuration.rb:228:in `call'
+puma (4.3.7) lib/puma/server.rb:713:in `handle_request'
+puma (4.3.7) lib/puma/server.rb:472:in `process_client'
+puma (4.3.7) lib/puma/server.rb:328:in `block in run'
+puma (4.3.7) lib/puma/thread_pool.rb:134:in `block in spawn_thread'
+Processing by Rails::WelcomeController#index as HTML
+  Rendering /Users/jrsamodal/.rvm/gems/ruby-2.7.2/gems/railties-6.0.3.4/lib/rails/templates/rails/welcome/index.html.erb
+  Rendered /Users/jrsamodal/.rvm/gems/ruby-2.7.2/gems/railties-6.0.3.4/lib/rails/templates/rails/welcome/index.html.erb (Duration: 6.9ms | Allocations: 826)
+Completed 200 OK in 10ms (Views: 8.4ms | ActiveRecord: 0.0ms | Allocations: 1717)
+
+
+  
+ActionController::RoutingError (No route matches [GET] "/v1/auctions"):
+  
+actionpack (6.0.3.4) lib/action_dispatch/middleware/debug_exceptions.rb:36:in `call'
+actionpack (6.0.3.4) lib/action_dispatch/middleware/show_exceptions.rb:33:in `call'
+railties (6.0.3.4) lib/rails/rack/logger.rb:37:in `call_app'
+railties (6.0.3.4) lib/rails/rack/logger.rb:26:in `block in call'
+activesupport (6.0.3.4) lib/active_support/tagged_logging.rb:80:in `block in tagged'
+activesupport (6.0.3.4) lib/active_support/tagged_logging.rb:28:in `tagged'
+activesupport (6.0.3.4) lib/active_support/tagged_logging.rb:80:in `tagged'
+railties (6.0.3.4) lib/rails/rack/logger.rb:26:in `call'
+actionpack (6.0.3.4) lib/action_dispatch/middleware/remote_ip.rb:81:in `call'
+actionpack (6.0.3.4) lib/action_dispatch/middleware/request_id.rb:27:in `call'
+rack (2.2.3) lib/rack/runtime.rb:22:in `call'
+activesupport (6.0.3.4) lib/active_support/cache/strategy/local_cache_middleware.rb:29:in `call'
+actionpack (6.0.3.4) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (6.0.3.4) lib/action_dispatch/middleware/static.rb:126:in `call'
+rack (2.2.3) lib/rack/sendfile.rb:110:in `call'
+actionpack (6.0.3.4) lib/action_dispatch/middleware/host_authorization.rb:82:in `call'
+railties (6.0.3.4) lib/rails/engine.rb:527:in `call'
+puma (4.3.7) lib/puma/configuration.rb:228:in `call'
+puma (4.3.7) lib/puma/server.rb:713:in `handle_request'
+puma (4.3.7) lib/puma/server.rb:472:in `process_client'
+puma (4.3.7) lib/puma/server.rb:328:in `block in run'
+puma (4.3.7) lib/puma/thread_pool.rb:134:in `block in spawn_thread'
+Started GET "/v1/contacts" for ::1 at 2021-01-06 10:01:28 -0800
+  [1m[35m (4.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  
+ActionController::RoutingError (No route matches [GET] "/v1/contacts"):
+  
+actionpack (6.0.3.4) lib/action_dispatch/middleware/debug_exceptions.rb:36:in `call'
+actionpack (6.0.3.4) lib/action_dispatch/middleware/show_exceptions.rb:33:in `call'
+railties (6.0.3.4) lib/rails/rack/logger.rb:37:in `call_app'
+railties (6.0.3.4) lib/rails/rack/logger.rb:26:in `block in call'
+activesupport (6.0.3.4) lib/active_support/tagged_logging.rb:80:in `block in tagged'
+activesupport (6.0.3.4) lib/active_support/tagged_logging.rb:28:in `tagged'
+activesupport (6.0.3.4) lib/active_support/tagged_logging.rb:80:in `tagged'
+railties (6.0.3.4) lib/rails/rack/logger.rb:26:in `call'
+actionpack (6.0.3.4) lib/action_dispatch/middleware/remote_ip.rb:81:in `call'
+actionpack (6.0.3.4) lib/action_dispatch/middleware/request_id.rb:27:in `call'
+rack (2.2.3) lib/rack/runtime.rb:22:in `call'
+activesupport (6.0.3.4) lib/active_support/cache/strategy/local_cache_middleware.rb:29:in `call'
+actionpack (6.0.3.4) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (6.0.3.4) lib/action_dispatch/middleware/static.rb:126:in `call'
+rack (2.2.3) lib/rack/sendfile.rb:110:in `call'
+actionpack (6.0.3.4) lib/action_dispatch/middleware/host_authorization.rb:82:in `call'
+railties (6.0.3.4) lib/rails/engine.rb:527:in `call'
+puma (4.3.7) lib/puma/configuration.rb:228:in `call'
+puma (4.3.7) lib/puma/server.rb:713:in `handle_request'
+puma (4.3.7) lib/puma/server.rb:472:in `process_client'
+puma (4.3.7) lib/puma/server.rb:328:in `block in run'
+puma (4.3.7) lib/puma/thread_pool.rb:134:in `block in spawn_thread'
+Started GET "/favicon.ico" for ::1 at 2021-01-06 10:01:28 -0800
+  
+ActionController::RoutingError (No route matches [GET] "/favicon.ico"):
+  
+actionpack (6.0.3.4) lib/action_dispatch/middleware/debug_exceptions.rb:36:in `call'
+actionpack (6.0.3.4) lib/action_dispatch/middleware/show_exceptions.rb:33:in `call'
+railties (6.0.3.4) lib/rails/rack/logger.rb:37:in `call_app'
+railties (6.0.3.4) lib/rails/rack/logger.rb:26:in `block in call'
+activesupport (6.0.3.4) lib/active_support/tagged_logging.rb:80:in `block in tagged'
+activesupport (6.0.3.4) lib/active_support/tagged_logging.rb:28:in `tagged'
+activesupport (6.0.3.4) lib/active_support/tagged_logging.rb:80:in `tagged'
+railties (6.0.3.4) lib/rails/rack/logger.rb:26:in `call'
+actionpack (6.0.3.4) lib/action_dispatch/middleware/remote_ip.rb:81:in `call'
+actionpack (6.0.3.4) lib/action_dispatch/middleware/request_id.rb:27:in `call'
+rack (2.2.3) lib/rack/runtime.rb:22:in `call'
+activesupport (6.0.3.4) lib/active_support/cache/strategy/local_cache_middleware.rb:29:in `call'
+actionpack (6.0.3.4) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (6.0.3.4) lib/action_dispatch/middleware/static.rb:126:in `call'
+rack (2.2.3) lib/rack/sendfile.rb:110:in `call'
+actionpack (6.0.3.4) lib/action_dispatch/middleware/host_authorization.rb:82:in `call'
+railties (6.0.3.4) lib/rails/engine.rb:527:in `call'
+puma (4.3.7) lib/puma/configuration.rb:228:in `call'
+puma (4.3.7) lib/puma/server.rb:713:in `handle_request'
+puma (4.3.7) lib/puma/server.rb:472:in `process_client'
+puma (4.3.7) lib/puma/server.rb:328:in `block in run'
+puma (4.3.7) lib/puma/thread_pool.rb:134:in `block in spawn_thread'
+Started GET "/v1/auctions" for ::1 at 2021-01-06 10:01:32 -0800
+  
+ActionController::RoutingError (No route matches [GET] "/v1/auctions"):
+  
+actionpack (6.0.3.4) lib/action_dispatch/middleware/debug_exceptions.rb:36:in `call'
+actionpack (6.0.3.4) lib/action_dispatch/middleware/show_exceptions.rb:33:in `call'
+railties (6.0.3.4) lib/rails/rack/logger.rb:37:in `call_app'
+railties (6.0.3.4) lib/rails/rack/logger.rb:26:in `block in call'
+activesupport (6.0.3.4) lib/active_support/tagged_logging.rb:80:in `block in tagged'
+activesupport (6.0.3.4) lib/active_support/tagged_logging.rb:28:in `tagged'
+activesupport (6.0.3.4) lib/active_support/tagged_logging.rb:80:in `tagged'
+railties (6.0.3.4) lib/rails/rack/logger.rb:26:in `call'
+actionpack (6.0.3.4) lib/action_dispatch/middleware/remote_ip.rb:81:in `call'
+actionpack (6.0.3.4) lib/action_dispatch/middleware/request_id.rb:27:in `call'
+rack (2.2.3) lib/rack/runtime.rb:22:in `call'
+activesupport (6.0.3.4) lib/active_support/cache/strategy/local_cache_middleware.rb:29:in `call'
+actionpack (6.0.3.4) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (6.0.3.4) lib/action_dispatch/middleware/static.rb:126:in `call'
+rack (2.2.3) lib/rack/sendfile.rb:110:in `call'
+actionpack (6.0.3.4) lib/action_dispatch/middleware/host_authorization.rb:82:in `call'
+railties (6.0.3.4) lib/rails/engine.rb:527:in `call'
+puma (4.3.7) lib/puma/configuration.rb:228:in `call'
+puma (4.3.7) lib/puma/server.rb:713:in `handle_request'
+puma (4.3.7) lib/puma/server.rb:472:in `process_client'
+puma (4.3.7) lib/puma/server.rb:328:in `block in run'
+puma (4.3.7) lib/puma/thread_pool.rb:134:in `block in spawn_thread'
+Started GET "/v1/auctions" for ::1 at 2021-01-06 10:04:13 -0800
+  [1m[35m (0.6ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by V1::AuctionsController#index as HTML
+  [1m[36mAuction Load (18.9ms)[0m  [1m[34mSELECT "auctions".* FROM "auctions"[0m
+  ↳ app/controllers/application_controller.rb:4:in `index'
+Completed 200 OK in 26ms (Views: 2.0ms | ActiveRecord: 21.4ms | Allocations: 1693)
+
+
+  [1m[35m (0.7ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.6ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.7ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.6ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mAuction Create (12.3ms)[0m  [1m[32mINSERT INTO "auctions" ("title", "body", "amount", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["title", "You can't calculate the driver without overriding the optical TCP monitor!"], ["body", "Chuck Norris burst the dot com bubble."], ["amount", 71071], ["created_at", "2016-04-28 00:00:00"], ["updated_at", "2016-04-28 00:00:00"]]
+  [1m[35m (1.3ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mAuction Create (0.3ms)[0m  [1m[32mINSERT INTO "auctions" ("title", "body", "amount", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["title", "Try to override the CSS matrix, maybe it will back up the neural bus!"], ["body", "Chuck Norris is immutable. If something's going to change, it's going to have to be the rest of the universe."], ["amount", 80613], ["created_at", "2016-09-21 00:00:00"], ["updated_at", "2016-09-21 00:00:00"]]
+  [1m[35m (0.5ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mAuction Create (0.3ms)[0m  [1m[32mINSERT INTO "auctions" ("title", "body", "amount", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["title", "Use the wireless JBOD circuit, then you can input the digital program!"], ["body", "Chuck Norris can write multi-threaded applications with a single thread."], ["amount", 33701], ["created_at", "2017-02-10 00:00:00"], ["updated_at", "2017-02-10 00:00:00"]]
+  [1m[35m (0.5ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mAuction Create (0.3ms)[0m  [1m[32mINSERT INTO "auctions" ("title", "body", "amount", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["title", "I'll calculate the solid state COM firewall, that should system the EXE monitor!"], ["body", "Chuck Norris breaks RSA 128-bit encrypted codes in milliseconds."], ["amount", 23611], ["created_at", "2017-11-14 00:00:00"], ["updated_at", "2017-11-14 00:00:00"]]
+  [1m[35m (0.5ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mAuction Create (0.3ms)[0m  [1m[32mINSERT INTO "auctions" ("title", "body", "amount", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["title", "I'll compress the open-source IB monitor, that should bus the SMS alarm!"], ["body", "Chuck Norris does not use exceptions when programming. He has not been able to identify any of his code that is not exceptional."], ["amount", 28692], ["created_at", "2019-02-20 00:00:00"], ["updated_at", "2019-02-20 00:00:00"]]
+  [1m[35m (0.6ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mAuction Create (0.3ms)[0m  [1m[32mINSERT INTO "auctions" ("title", "body", "amount", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["title", "If we generate the array, we can get to the CSS driver through the mobile PNG port!"], ["body", "Chuck Norris can divide by zero."], ["amount", 3018], ["created_at", "2018-11-27 00:00:00"], ["updated_at", "2018-11-27 00:00:00"]]
+  [1m[35m (0.4ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.4ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mAuction Create (0.6ms)[0m  [1m[32mINSERT INTO "auctions" ("title", "body", "amount", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["title", "Use the online FTP interface, then you can bypass the multi-byte hard drive!"], ["body", "Chuck Norris hosting is 101% uptime guaranteed."], ["amount", 54502], ["created_at", "2016-09-14 00:00:00"], ["updated_at", "2016-09-14 00:00:00"]]
+  [1m[35m (0.7ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mAuction Create (0.5ms)[0m  [1m[32mINSERT INTO "auctions" ("title", "body", "amount", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["title", "You can't input the system without hacking the 1080p SDD program!"], ["body", "Whiteboards are white because Chuck Norris scared them that way."], ["amount", 58039], ["created_at", "2019-10-09 00:00:00"], ["updated_at", "2019-10-09 00:00:00"]]
+  [1m[35m (0.7ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mAuction Create (0.7ms)[0m  [1m[32mINSERT INTO "auctions" ("title", "body", "amount", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["title", "You can't quantify the circuit without synthesizing the open-source ADP bus!"], ["body", "Whiteboards are white because Chuck Norris scared them that way."], ["amount", 33282], ["created_at", "2020-07-04 00:00:00"], ["updated_at", "2020-07-04 00:00:00"]]
+  [1m[35m (0.6ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mAuction Create (0.4ms)[0m  [1m[32mINSERT INTO "auctions" ("title", "body", "amount", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["title", "I'll input the optical IB pixel, that should interface the SCSI interface!"], ["body", "Quantum cryptography does not work on Chuck Norris. When something is being observed by Chuck it stays in the same state until he's finished."], ["amount", 41291], ["created_at", "2019-12-29 00:00:00"], ["updated_at", "2019-12-29 00:00:00"]]
+  [1m[35m (0.8ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mAuction Create (0.4ms)[0m  [1m[32mINSERT INTO "auctions" ("title", "body", "amount", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["title", "You can't program the system without programming the solid state IB program!"], ["body", "Whiteboards are white because Chuck Norris scared them that way."], ["amount", 81429], ["created_at", "2019-06-01 00:00:00"], ["updated_at", "2019-06-01 00:00:00"]]
+  [1m[35m (0.7ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mAuction Create (0.4ms)[0m  [1m[32mINSERT INTO "auctions" ("title", "body", "amount", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["title", "If we index the array, we can get to the PNG protocol through the online SAS panel!"], ["body", "Chuck Norris has root access to your system."], ["amount", 52600], ["created_at", "2018-04-20 00:00:00"], ["updated_at", "2018-04-20 00:00:00"]]
+  [1m[35m (0.5ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mAuction Create (0.4ms)[0m  [1m[32mINSERT INTO "auctions" ("title", "body", "amount", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["title", "If we quantify the system, we can get to the SDD card through the wireless XSS firewall!"], ["body", "Chuck Norris can compile syntax errors."], ["amount", 72785], ["created_at", "2016-04-07 00:00:00"], ["updated_at", "2016-04-07 00:00:00"]]
+  [1m[35m (0.6ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mAuction Create (0.3ms)[0m  [1m[32mINSERT INTO "auctions" ("title", "body", "amount", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["title", "The SDD capacitor is down, generate the primary firewall so we can back up the JSON circuit!"], ["body", "Chuck Norris can write multi-threaded applications with a single thread."], ["amount", 74335], ["created_at", "2020-02-20 00:00:00"], ["updated_at", "2020-02-20 00:00:00"]]
+  [1m[35m (0.6ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mAuction Create (0.3ms)[0m  [1m[32mINSERT INTO "auctions" ("title", "body", "amount", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["title", "Use the back-end EXE hard drive, then you can parse the wireless pixel!"], ["body", "Chuck Norris can instantiate an abstract class."], ["amount", 54888], ["created_at", "2017-03-21 00:00:00"], ["updated_at", "2017-03-21 00:00:00"]]
+  [1m[35m (0.5ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mAuction Create (0.5ms)[0m  [1m[32mINSERT INTO "auctions" ("title", "body", "amount", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["title", "Use the neural ADP alarm, then you can compress the back-end feed!"], ["body", "Chuck Norris can instantiate an abstract class."], ["amount", 3149], ["created_at", "2016-04-17 00:00:00"], ["updated_at", "2016-04-17 00:00:00"]]
+  [1m[35m (0.5ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mAuction Create (0.7ms)[0m  [1m[32mINSERT INTO "auctions" ("title", "body", "amount", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["title", "We need to compress the open-source PCI application!"], ["body", "When Chuck Norris points to null, null quakes in fear."], ["amount", 17140], ["created_at", "2020-08-27 00:00:00"], ["updated_at", "2020-08-27 00:00:00"]]
+  [1m[35m (0.6ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mAuction Create (0.5ms)[0m  [1m[32mINSERT INTO "auctions" ("title", "body", "amount", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["title", "You can't synthesize the program without navigating the back-end HDD capacitor!"], ["body", "Chuck Norris doesn't use a computer because a computer does everything slower than Chuck Norris."], ["amount", 94573], ["created_at", "2018-07-11 00:00:00"], ["updated_at", "2018-07-11 00:00:00"]]
+  [1m[35m (0.6ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mAuction Create (1.0ms)[0m  [1m[32mINSERT INTO "auctions" ("title", "body", "amount", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["title", "You can't input the interface without bypassing the neural GB microchip!"], ["body", "Chuck Norris doesn't get compiler errors, the language changes itself to accommodate Chuck Norris."], ["amount", 93668], ["created_at", "2017-11-26 00:00:00"], ["updated_at", "2017-11-26 00:00:00"]]
+  [1m[35m (0.9ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mAuction Create (0.3ms)[0m  [1m[32mINSERT INTO "auctions" ("title", "body", "amount", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["title", "We need to generate the solid state SCSI program!"], ["body", "Chuck Norris doesn't need an OS."], ["amount", 35643], ["created_at", "2017-10-27 00:00:00"], ["updated_at", "2017-10-27 00:00:00"]]
+  [1m[35m (0.4ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mAuction Load (1.8ms)[0m  [1m[34mSELECT "auctions".* FROM "auctions" LIMIT $1[0m  [["LIMIT", 11]]
+  [1m[36mAuction Load (0.4ms)[0m  [1m[34mSELECT "auctions".* FROM "auctions" WHERE "auctions"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+Started GET "/v1/auctions" for ::1 at 2021-01-06 10:20:17 -0800
+  [1m[35m (1.0ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by V1::AuctionsController#index as HTML
+  [1m[36mAuction Load (0.7ms)[0m  [1m[34mSELECT "auctions".* FROM "auctions"[0m
+  ↳ app/controllers/application_controller.rb:4:in `index'
+Completed 200 OK in 15ms (Views: 9.0ms | ActiveRecord: 4.7ms | Allocations: 7037)
+
+
+Started GET "/v1/auctions" for ::1 at 2021-01-06 10:32:11 -0800
+  
+NoMethodError (undefined method `helper_method' for ApplicationController:Class):
+  
+app/controllers/application_controller.rb:5:in `<class:ApplicationController>'
+app/controllers/application_controller.rb:1:in `<main>'
+app/controllers/v1/auctions_controller.rb:1:in `<main>'
+Started GET "/v1/auctions" for ::1 at 2021-01-06 10:32:27 -0800
+Started GET "/v1/contacts" for ::1 at 2021-01-06 10:32:53 -0800
+Started GET "/v1/contacts" for ::1 at 2021-01-06 10:32:53 -0800
+Started GET "/v1/auctions" for ::1 at 2021-01-06 10:32:53 -0800
+  
+AbstractController::ActionNotFound (The action 'index' could not be found for V1::AuctionsController):
+  
+actionpack (6.0.3.4) lib/abstract_controller/base.rb:131:in `process'
+actionpack (6.0.3.4) lib/action_controller/metal.rb:190:in `dispatch'
+actionpack (6.0.3.4) lib/action_controller/metal.rb:254:in `dispatch'
+actionpack (6.0.3.4) lib/action_dispatch/routing/route_set.rb:50:in `dispatch'
+actionpack (6.0.3.4) lib/action_dispatch/routing/route_set.rb:33:in `serve'
+actionpack (6.0.3.4) lib/action_dispatch/journey/router.rb:49:in `block in serve'
+actionpack (6.0.3.4) lib/action_dispatch/journey/router.rb:32:in `each'
+actionpack (6.0.3.4) lib/action_dispatch/journey/router.rb:32:in `serve'
+actionpack (6.0.3.4) lib/action_dispatch/routing/route_set.rb:834:in `call'
+rack (2.2.3) lib/rack/etag.rb:27:in `call'
+rack (2.2.3) lib/rack/conditional_get.rb:27:in `call'
+rack (2.2.3) lib/rack/head.rb:12:in `call'
+activerecord (6.0.3.4) lib/active_record/migration.rb:567:in `call'
+actionpack (6.0.3.4) lib/action_dispatch/middleware/callbacks.rb:27:in `block in call'
+activesupport (6.0.3.4) lib/active_support/callbacks.rb:101:in `run_callbacks'
+actionpack (6.0.3.4) lib/action_dispatch/middleware/callbacks.rb:26:in `call'
+actionpack (6.0.3.4) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (6.0.3.4) lib/action_dispatch/middleware/actionable_exceptions.rb:18:in `call'
+actionpack (6.0.3.4) lib/action_dispatch/middleware/debug_exceptions.rb:32:in `call'
+actionpack (6.0.3.4) lib/action_dispatch/middleware/show_exceptions.rb:33:in `call'
+railties (6.0.3.4) lib/rails/rack/logger.rb:37:in `call_app'
+railties (6.0.3.4) lib/rails/rack/logger.rb:26:in `block in call'
+activesupport (6.0.3.4) lib/active_support/tagged_logging.rb:80:in `block in tagged'
+activesupport (6.0.3.4) lib/active_support/tagged_logging.rb:28:in `tagged'
+activesupport (6.0.3.4) lib/active_support/tagged_logging.rb:80:in `tagged'
+railties (6.0.3.4) lib/rails/rack/logger.rb:26:in `call'
+actionpack (6.0.3.4) lib/action_dispatch/middleware/remote_ip.rb:81:in `call'
+actionpack (6.0.3.4) lib/action_dispatch/middleware/request_id.rb:27:in `call'
+rack (2.2.3) lib/rack/runtime.rb:22:in `call'
+activesupport (6.0.3.4) lib/active_support/cache/strategy/local_cache_middleware.rb:29:in `call'
+actionpack (6.0.3.4) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (6.0.3.4) lib/action_dispatch/middleware/static.rb:126:in `call'
+rack (2.2.3) lib/rack/sendfile.rb:110:in `call'
+actionpack (6.0.3.4) lib/action_dispatch/middleware/host_authorization.rb:82:in `call'
+railties (6.0.3.4) lib/rails/engine.rb:527:in `call'
+puma (4.3.7) lib/puma/configuration.rb:228:in `call'
+puma (4.3.7) lib/puma/server.rb:713:in `handle_request'
+puma (4.3.7) lib/puma/server.rb:472:in `process_client'
+puma (4.3.7) lib/puma/server.rb:328:in `block in run'
+puma (4.3.7) lib/puma/thread_pool.rb:134:in `block in spawn_thread'
+  
+ActionController::RoutingError (No route matches [GET] "/v1/contacts"):
+  
+actionpack (6.0.3.4) lib/action_dispatch/middleware/debug_exceptions.rb:36:in `call'
+actionpack (6.0.3.4) lib/action_dispatch/middleware/show_exceptions.rb:33:in `call'
+railties (6.0.3.4) lib/rails/rack/logger.rb:37:in `call_app'
+railties (6.0.3.4) lib/rails/rack/logger.rb:26:in `block in call'
+activesupport (6.0.3.4) lib/active_support/tagged_logging.rb:80:in `block in tagged'
+activesupport (6.0.3.4) lib/active_support/tagged_logging.rb:28:in `tagged'
+activesupport (6.0.3.4) lib/active_support/tagged_logging.rb:80:in `tagged'
+railties (6.0.3.4) lib/rails/rack/logger.rb:26:in `call'
+actionpack (6.0.3.4) lib/action_dispatch/middleware/remote_ip.rb:81:in `call'
+actionpack (6.0.3.4) lib/action_dispatch/middleware/request_id.rb:27:in `call'
+rack (2.2.3) lib/rack/runtime.rb:22:in `call'
+activesupport (6.0.3.4) lib/active_support/cache/strategy/local_cache_middleware.rb:29:in `call'
+actionpack (6.0.3.4) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (6.0.3.4) lib/action_dispatch/middleware/static.rb:126:in `call'
+rack (2.2.3) lib/rack/sendfile.rb:110:in `call'
+actionpack (6.0.3.4) lib/action_dispatch/middleware/host_authorization.rb:82:in `call'
+railties (6.0.3.4) lib/rails/engine.rb:527:in `call'
+puma (4.3.7) lib/puma/configuration.rb:228:in `call'
+puma (4.3.7) lib/puma/server.rb:713:in `handle_request'
+puma (4.3.7) lib/puma/server.rb:472:in `process_client'
+puma (4.3.7) lib/puma/server.rb:328:in `block in run'
+puma (4.3.7) lib/puma/thread_pool.rb:134:in `block in spawn_thread'
+Started GET "/v1/contacts" for ::1 at 2021-01-06 10:33:37 -0800
+  
+ActionController::RoutingError (No route matches [GET] "/v1/contacts"):
+  
+actionpack (6.0.3.4) lib/action_dispatch/middleware/debug_exceptions.rb:36:in `call'
+actionpack (6.0.3.4) lib/action_dispatch/middleware/show_exceptions.rb:33:in `call'
+railties (6.0.3.4) lib/rails/rack/logger.rb:37:in `call_app'
+railties (6.0.3.4) lib/rails/rack/logger.rb:26:in `block in call'
+activesupport (6.0.3.4) lib/active_support/tagged_logging.rb:80:in `block in tagged'
+activesupport (6.0.3.4) lib/active_support/tagged_logging.rb:28:in `tagged'
+activesupport (6.0.3.4) lib/active_support/tagged_logging.rb:80:in `tagged'
+railties (6.0.3.4) lib/rails/rack/logger.rb:26:in `call'
+actionpack (6.0.3.4) lib/action_dispatch/middleware/remote_ip.rb:81:in `call'
+actionpack (6.0.3.4) lib/action_dispatch/middleware/request_id.rb:27:in `call'
+rack (2.2.3) lib/rack/runtime.rb:22:in `call'
+activesupport (6.0.3.4) lib/active_support/cache/strategy/local_cache_middleware.rb:29:in `call'
+actionpack (6.0.3.4) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (6.0.3.4) lib/action_dispatch/middleware/static.rb:126:in `call'
+rack (2.2.3) lib/rack/sendfile.rb:110:in `call'
+actionpack (6.0.3.4) lib/action_dispatch/middleware/host_authorization.rb:82:in `call'
+railties (6.0.3.4) lib/rails/engine.rb:527:in `call'
+puma (4.3.7) lib/puma/configuration.rb:228:in `call'
+puma (4.3.7) lib/puma/server.rb:713:in `handle_request'
+puma (4.3.7) lib/puma/server.rb:472:in `process_client'
+puma (4.3.7) lib/puma/server.rb:328:in `block in run'
+puma (4.3.7) lib/puma/thread_pool.rb:134:in `block in spawn_thread'
+  
+AbstractController::ActionNotFound (The action 'index' could not be found for V1::AuctionsController):
+  
+actionpack (6.0.3.4) lib/abstract_controller/base.rb:131:in `process'
+actionpack (6.0.3.4) lib/action_controller/metal.rb:190:in `dispatch'
+actionpack (6.0.3.4) lib/action_controller/metal.rb:254:in `dispatch'
+actionpack (6.0.3.4) lib/action_dispatch/routing/route_set.rb:50:in `dispatch'
+actionpack (6.0.3.4) lib/action_dispatch/routing/route_set.rb:33:in `serve'
+actionpack (6.0.3.4) lib/action_dispatch/journey/router.rb:49:in `block in serve'
+actionpack (6.0.3.4) lib/action_dispatch/journey/router.rb:32:in `each'
+actionpack (6.0.3.4) lib/action_dispatch/journey/router.rb:32:in `serve'
+actionpack (6.0.3.4) lib/action_dispatch/routing/route_set.rb:834:in `call'
+rack (2.2.3) lib/rack/etag.rb:27:in `call'
+rack (2.2.3) lib/rack/conditional_get.rb:27:in `call'
+rack (2.2.3) lib/rack/head.rb:12:in `call'
+activerecord (6.0.3.4) lib/active_record/migration.rb:567:in `call'
+actionpack (6.0.3.4) lib/action_dispatch/middleware/callbacks.rb:27:in `block in call'
+activesupport (6.0.3.4) lib/active_support/callbacks.rb:101:in `run_callbacks'
+actionpack (6.0.3.4) lib/action_dispatch/middleware/callbacks.rb:26:in `call'
+actionpack (6.0.3.4) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (6.0.3.4) lib/action_dispatch/middleware/actionable_exceptions.rb:18:in `call'
+actionpack (6.0.3.4) lib/action_dispatch/middleware/debug_exceptions.rb:32:in `call'
+actionpack (6.0.3.4) lib/action_dispatch/middleware/show_exceptions.rb:33:in `call'
+railties (6.0.3.4) lib/rails/rack/logger.rb:37:in `call_app'
+railties (6.0.3.4) lib/rails/rack/logger.rb:26:in `block in call'
+activesupport (6.0.3.4) lib/active_support/tagged_logging.rb:80:in `block in tagged'
+activesupport (6.0.3.4) lib/active_support/tagged_logging.rb:28:in `tagged'
+activesupport (6.0.3.4) lib/active_support/tagged_logging.rb:80:in `tagged'
+railties (6.0.3.4) lib/rails/rack/logger.rb:26:in `call'
+actionpack (6.0.3.4) lib/action_dispatch/middleware/remote_ip.rb:81:in `call'
+actionpack (6.0.3.4) lib/action_dispatch/middleware/request_id.rb:27:in `call'
+rack (2.2.3) lib/rack/runtime.rb:22:in `call'
+activesupport (6.0.3.4) lib/active_support/cache/strategy/local_cache_middleware.rb:29:in `call'
+actionpack (6.0.3.4) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (6.0.3.4) lib/action_dispatch/middleware/static.rb:126:in `call'
+rack (2.2.3) lib/rack/sendfile.rb:110:in `call'
+actionpack (6.0.3.4) lib/action_dispatch/middleware/host_authorization.rb:82:in `call'
+railties (6.0.3.4) lib/rails/engine.rb:527:in `call'
+puma (4.3.7) lib/puma/configuration.rb:228:in `call'
+puma (4.3.7) lib/puma/server.rb:713:in `handle_request'
+puma (4.3.7) lib/puma/server.rb:472:in `process_client'
+puma (4.3.7) lib/puma/server.rb:328:in `block in run'
+puma (4.3.7) lib/puma/thread_pool.rb:134:in `block in spawn_thread'
+  
+ActionController::RoutingError (No route matches [GET] "/v1/contacts"):
+  
+actionpack (6.0.3.4) lib/action_dispatch/middleware/debug_exceptions.rb:36:in `call'
+actionpack (6.0.3.4) lib/action_dispatch/middleware/show_exceptions.rb:33:in `call'
+railties (6.0.3.4) lib/rails/rack/logger.rb:37:in `call_app'
+railties (6.0.3.4) lib/rails/rack/logger.rb:26:in `block in call'
+activesupport (6.0.3.4) lib/active_support/tagged_logging.rb:80:in `block in tagged'
+activesupport (6.0.3.4) lib/active_support/tagged_logging.rb:28:in `tagged'
+activesupport (6.0.3.4) lib/active_support/tagged_logging.rb:80:in `tagged'
+railties (6.0.3.4) lib/rails/rack/logger.rb:26:in `call'
+actionpack (6.0.3.4) lib/action_dispatch/middleware/remote_ip.rb:81:in `call'
+actionpack (6.0.3.4) lib/action_dispatch/middleware/request_id.rb:27:in `call'
+rack (2.2.3) lib/rack/runtime.rb:22:in `call'
+activesupport (6.0.3.4) lib/active_support/cache/strategy/local_cache_middleware.rb:29:in `call'
+actionpack (6.0.3.4) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (6.0.3.4) lib/action_dispatch/middleware/static.rb:126:in `call'
+rack (2.2.3) lib/rack/sendfile.rb:110:in `call'
+actionpack (6.0.3.4) lib/action_dispatch/middleware/host_authorization.rb:82:in `call'
+railties (6.0.3.4) lib/rails/engine.rb:527:in `call'
+puma (4.3.7) lib/puma/configuration.rb:228:in `call'
+puma (4.3.7) lib/puma/server.rb:713:in `handle_request'
+puma (4.3.7) lib/puma/server.rb:472:in `process_client'
+puma (4.3.7) lib/puma/server.rb:328:in `block in run'
+puma (4.3.7) lib/puma/thread_pool.rb:134:in `block in spawn_thread'
+Started GET "/v1/contacts" for ::1 at 2021-01-06 10:33:38 -0800
+  
+ActionController::RoutingError (No route matches [GET] "/v1/contacts"):
+  
+actionpack (6.0.3.4) lib/action_dispatch/middleware/debug_exceptions.rb:36:in `call'
+actionpack (6.0.3.4) lib/action_dispatch/middleware/show_exceptions.rb:33:in `call'
+railties (6.0.3.4) lib/rails/rack/logger.rb:37:in `call_app'
+railties (6.0.3.4) lib/rails/rack/logger.rb:26:in `block in call'
+activesupport (6.0.3.4) lib/active_support/tagged_logging.rb:80:in `block in tagged'
+activesupport (6.0.3.4) lib/active_support/tagged_logging.rb:28:in `tagged'
+activesupport (6.0.3.4) lib/active_support/tagged_logging.rb:80:in `tagged'
+railties (6.0.3.4) lib/rails/rack/logger.rb:26:in `call'
+actionpack (6.0.3.4) lib/action_dispatch/middleware/remote_ip.rb:81:in `call'
+actionpack (6.0.3.4) lib/action_dispatch/middleware/request_id.rb:27:in `call'
+rack (2.2.3) lib/rack/runtime.rb:22:in `call'
+activesupport (6.0.3.4) lib/active_support/cache/strategy/local_cache_middleware.rb:29:in `call'
+actionpack (6.0.3.4) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (6.0.3.4) lib/action_dispatch/middleware/static.rb:126:in `call'
+rack (2.2.3) lib/rack/sendfile.rb:110:in `call'
+actionpack (6.0.3.4) lib/action_dispatch/middleware/host_authorization.rb:82:in `call'
+railties (6.0.3.4) lib/rails/engine.rb:527:in `call'
+puma (4.3.7) lib/puma/configuration.rb:228:in `call'
+puma (4.3.7) lib/puma/server.rb:713:in `handle_request'
+puma (4.3.7) lib/puma/server.rb:472:in `process_client'
+puma (4.3.7) lib/puma/server.rb:328:in `block in run'
+puma (4.3.7) lib/puma/thread_pool.rb:134:in `block in spawn_thread'
+Started GET "/v1/auciton" for ::1 at 2021-01-06 10:33:49 -0800
+  
+ActionController::RoutingError (No route matches [GET] "/v1/auciton"):
+  
+actionpack (6.0.3.4) lib/action_dispatch/middleware/debug_exceptions.rb:36:in `call'
+actionpack (6.0.3.4) lib/action_dispatch/middleware/show_exceptions.rb:33:in `call'
+railties (6.0.3.4) lib/rails/rack/logger.rb:37:in `call_app'
+railties (6.0.3.4) lib/rails/rack/logger.rb:26:in `block in call'
+activesupport (6.0.3.4) lib/active_support/tagged_logging.rb:80:in `block in tagged'
+activesupport (6.0.3.4) lib/active_support/tagged_logging.rb:28:in `tagged'
+activesupport (6.0.3.4) lib/active_support/tagged_logging.rb:80:in `tagged'
+railties (6.0.3.4) lib/rails/rack/logger.rb:26:in `call'
+actionpack (6.0.3.4) lib/action_dispatch/middleware/remote_ip.rb:81:in `call'
+actionpack (6.0.3.4) lib/action_dispatch/middleware/request_id.rb:27:in `call'
+rack (2.2.3) lib/rack/runtime.rb:22:in `call'
+activesupport (6.0.3.4) lib/active_support/cache/strategy/local_cache_middleware.rb:29:in `call'
+actionpack (6.0.3.4) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (6.0.3.4) lib/action_dispatch/middleware/static.rb:126:in `call'
+rack (2.2.3) lib/rack/sendfile.rb:110:in `call'
+actionpack (6.0.3.4) lib/action_dispatch/middleware/host_authorization.rb:82:in `call'
+railties (6.0.3.4) lib/rails/engine.rb:527:in `call'
+puma (4.3.7) lib/puma/configuration.rb:228:in `call'
+puma (4.3.7) lib/puma/server.rb:713:in `handle_request'
+puma (4.3.7) lib/puma/server.rb:472:in `process_client'
+puma (4.3.7) lib/puma/server.rb:328:in `block in run'
+puma (4.3.7) lib/puma/thread_pool.rb:134:in `block in spawn_thread'
+Started GET "/v1/aucitons" for ::1 at 2021-01-06 10:33:54 -0800
+  
+ActionController::RoutingError (No route matches [GET] "/v1/aucitons"):
+  
+actionpack (6.0.3.4) lib/action_dispatch/middleware/debug_exceptions.rb:36:in `call'
+actionpack (6.0.3.4) lib/action_dispatch/middleware/show_exceptions.rb:33:in `call'
+railties (6.0.3.4) lib/rails/rack/logger.rb:37:in `call_app'
+railties (6.0.3.4) lib/rails/rack/logger.rb:26:in `block in call'
+activesupport (6.0.3.4) lib/active_support/tagged_logging.rb:80:in `block in tagged'
+activesupport (6.0.3.4) lib/active_support/tagged_logging.rb:28:in `tagged'
+activesupport (6.0.3.4) lib/active_support/tagged_logging.rb:80:in `tagged'
+railties (6.0.3.4) lib/rails/rack/logger.rb:26:in `call'
+actionpack (6.0.3.4) lib/action_dispatch/middleware/remote_ip.rb:81:in `call'
+actionpack (6.0.3.4) lib/action_dispatch/middleware/request_id.rb:27:in `call'
+rack (2.2.3) lib/rack/runtime.rb:22:in `call'
+activesupport (6.0.3.4) lib/active_support/cache/strategy/local_cache_middleware.rb:29:in `call'
+actionpack (6.0.3.4) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (6.0.3.4) lib/action_dispatch/middleware/static.rb:126:in `call'
+rack (2.2.3) lib/rack/sendfile.rb:110:in `call'
+actionpack (6.0.3.4) lib/action_dispatch/middleware/host_authorization.rb:82:in `call'
+railties (6.0.3.4) lib/rails/engine.rb:527:in `call'
+puma (4.3.7) lib/puma/configuration.rb:228:in `call'
+puma (4.3.7) lib/puma/server.rb:713:in `handle_request'
+puma (4.3.7) lib/puma/server.rb:472:in `process_client'
+puma (4.3.7) lib/puma/server.rb:328:in `block in run'
+puma (4.3.7) lib/puma/thread_pool.rb:134:in `block in spawn_thread'
+Started GET "/v1/auctions" for ::1 at 2021-01-06 10:34:03 -0800
+  
+AbstractController::ActionNotFound (The action 'index' could not be found for V1::AuctionsController):
+  
+actionpack (6.0.3.4) lib/abstract_controller/base.rb:131:in `process'
+actionpack (6.0.3.4) lib/action_controller/metal.rb:190:in `dispatch'
+actionpack (6.0.3.4) lib/action_controller/metal.rb:254:in `dispatch'
+actionpack (6.0.3.4) lib/action_dispatch/routing/route_set.rb:50:in `dispatch'
+actionpack (6.0.3.4) lib/action_dispatch/routing/route_set.rb:33:in `serve'
+actionpack (6.0.3.4) lib/action_dispatch/journey/router.rb:49:in `block in serve'
+actionpack (6.0.3.4) lib/action_dispatch/journey/router.rb:32:in `each'
+actionpack (6.0.3.4) lib/action_dispatch/journey/router.rb:32:in `serve'
+actionpack (6.0.3.4) lib/action_dispatch/routing/route_set.rb:834:in `call'
+rack (2.2.3) lib/rack/etag.rb:27:in `call'
+rack (2.2.3) lib/rack/conditional_get.rb:27:in `call'
+rack (2.2.3) lib/rack/head.rb:12:in `call'
+activerecord (6.0.3.4) lib/active_record/migration.rb:567:in `call'
+actionpack (6.0.3.4) lib/action_dispatch/middleware/callbacks.rb:27:in `block in call'
+activesupport (6.0.3.4) lib/active_support/callbacks.rb:101:in `run_callbacks'
+actionpack (6.0.3.4) lib/action_dispatch/middleware/callbacks.rb:26:in `call'
+actionpack (6.0.3.4) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (6.0.3.4) lib/action_dispatch/middleware/actionable_exceptions.rb:18:in `call'
+actionpack (6.0.3.4) lib/action_dispatch/middleware/debug_exceptions.rb:32:in `call'
+actionpack (6.0.3.4) lib/action_dispatch/middleware/show_exceptions.rb:33:in `call'
+railties (6.0.3.4) lib/rails/rack/logger.rb:37:in `call_app'
+railties (6.0.3.4) lib/rails/rack/logger.rb:26:in `block in call'
+activesupport (6.0.3.4) lib/active_support/tagged_logging.rb:80:in `block in tagged'
+activesupport (6.0.3.4) lib/active_support/tagged_logging.rb:28:in `tagged'
+activesupport (6.0.3.4) lib/active_support/tagged_logging.rb:80:in `tagged'
+railties (6.0.3.4) lib/rails/rack/logger.rb:26:in `call'
+actionpack (6.0.3.4) lib/action_dispatch/middleware/remote_ip.rb:81:in `call'
+actionpack (6.0.3.4) lib/action_dispatch/middleware/request_id.rb:27:in `call'
+rack (2.2.3) lib/rack/runtime.rb:22:in `call'
+activesupport (6.0.3.4) lib/active_support/cache/strategy/local_cache_middleware.rb:29:in `call'
+actionpack (6.0.3.4) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (6.0.3.4) lib/action_dispatch/middleware/static.rb:126:in `call'
+rack (2.2.3) lib/rack/sendfile.rb:110:in `call'
+actionpack (6.0.3.4) lib/action_dispatch/middleware/host_authorization.rb:82:in `call'
+railties (6.0.3.4) lib/rails/engine.rb:527:in `call'
+puma (4.3.7) lib/puma/configuration.rb:228:in `call'
+puma (4.3.7) lib/puma/server.rb:713:in `handle_request'
+puma (4.3.7) lib/puma/server.rb:472:in `process_client'
+puma (4.3.7) lib/puma/server.rb:328:in `block in run'
+puma (4.3.7) lib/puma/thread_pool.rb:134:in `block in spawn_thread'
+Started GET "/v1/auctions" for ::1 at 2021-01-06 10:34:19 -0800
+Started GET "/v1/auctions" for ::1 at 2021-01-06 10:36:03 -0800
+Started GET "/v1/auctions" for ::1 at 2021-01-06 10:36:03 -0800
+Started GET "/v1/auctions" for ::1 at 2021-01-06 10:36:03 -0800
+Processing by V1::AuctionsController#index as HTML
+Processing by V1::AuctionsController#index as HTML
+  [1m[36mAuction Load (0.7ms)[0m  [1m[34mSELECT "auctions".* FROM "auctions"[0m
+  ↳ app/controllers/v1/auctions_controller.rb:6:in `index'
+  [1m[36mAuction Load (1.0ms)[0m  [1m[34mSELECT "auctions".* FROM "auctions"[0m
+  ↳ app/controllers/v1/auctions_controller.rb:6:in `index'
+Completed 200 OK in 17ms (Views: 7.9ms | ActiveRecord: 6.0ms | Allocations: 7918)
+
+
+Completed 200 OK in 21ms (Views: 8.1ms | ActiveRecord: 10.0ms | Allocations: 10219)
+
+
+Started GET "/v1/auctions" for ::1 at 2021-01-06 10:36:12 -0800
+Processing by V1::AuctionsController#index as HTML
+  [1m[36mAuction Load (0.5ms)[0m  [1m[34mSELECT "auctions".* FROM "auctions"[0m
+  ↳ app/controllers/v1/auctions_controller.rb:6:in `index'
+Completed 200 OK in 7ms (Views: 5.7ms | ActiveRecord: 0.5ms | Allocations: 3146)
+
+
+Started GET "/v1/auctions" for ::1 at 2021-01-06 10:36:15 -0800
+Processing by V1::AuctionsController#index as HTML
+  [1m[36mAuction Load (0.6ms)[0m  [1m[34mSELECT "auctions".* FROM "auctions"[0m
+  ↳ app/controllers/v1/auctions_controller.rb:6:in `index'
+Completed 200 OK in 6ms (Views: 5.6ms | ActiveRecord: 0.6ms | Allocations: 3146)
+
+
+Started GET "/v1/auctions" for ::1 at 2021-01-06 10:36:19 -0800
+Processing by V1::AuctionsController#index as HTML
+  [1m[36mAuction Load (0.8ms)[0m  [1m[34mSELECT "auctions".* FROM "auctions"[0m
+  ↳ app/controllers/v1/auctions_controller.rb:6:in `index'
+Completed 200 OK in 8ms (Views: 6.7ms | ActiveRecord: 0.8ms | Allocations: 3146)
+
+
+  [1m[35m (1.2ms)[0m  [1m[34mSELECT pg_try_advisory_lock(7998245229184738815)[0m
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mActiveRecord::InternalMetadata Load (9.1ms)[0m  [1m[34mSELECT "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT pg_advisory_unlock(7998245229184738815)[0m
+  [1m[35m (0.6ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT pg_try_advisory_lock(7998245229184738815)[0m
+  [1m[35m (0.6ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Migrating to CreateBids (20210106173428)
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (67.0ms)[0m  [1m[35mCREATE TABLE "bids" ("id" bigserial primary key, "bid" integer, "auction_id" bigint NOT NULL, "created_at" timestamp(6) NOT NULL, "updated_at" timestamp(6) NOT NULL, CONSTRAINT "fk_rails_7332d1a025"
+FOREIGN KEY ("auction_id")
+  REFERENCES "auctions" ("id")
+)[0m
+  [1m[35m (1.3ms)[0m  [1m[35mCREATE  INDEX  "index_bids_on_auction_id" ON "bids"  ("auction_id")[0m
+  [1m[36mprimary::SchemaMigration Create (0.4ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20210106173428"]]
+  [1m[35m (1.0ms)[0m  [1m[35mCOMMIT[0m
+Migrating to CreateUsers (20210106184526)
+  [1m[35m (0.4ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (9.9ms)[0m  [1m[35mCREATE TABLE "users" ("id" bigserial primary key, "first_name" character varying, "last_name" character varying, "email" character varying, "password_digest" character varying, "created_at" timestamp(6) NOT NULL, "updated_at" timestamp(6) NOT NULL)[0m
+  [1m[35m (2.4ms)[0m  [1m[35mCREATE UNIQUE INDEX  "index_users_on_email" ON "users"  ("email")[0m
+  [1m[36mprimary::SchemaMigration Create (0.3ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20210106184526"]]
+  [1m[35m (0.7ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.9ms)[0m  [1m[34mSELECT "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT pg_advisory_unlock(7998245229184738815)[0m
+  [1m[35m (0.7ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT pg_try_advisory_lock(7998245229184738815)[0m
+  [1m[35m (0.8ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Migrating to AddReferences (20210106185220)
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (5.2ms)[0m  [1m[35mALTER TABLE "bids" ADD "user_id" bigint[0m
+  [1m[35m (2.0ms)[0m  [1m[35mCREATE  INDEX  "index_bids_on_user_id" ON "bids"  ("user_id")[0m
+  [1m[35m (10.5ms)[0m  [1m[35mALTER TABLE "bids" ADD CONSTRAINT "fk_rails_e173de2ed3"
+FOREIGN KEY ("user_id")
+  REFERENCES "users" ("id")
+[0m
+  [1m[35m (0.6ms)[0m  [1m[35mALTER TABLE "auctions" ADD "user_id" bigint[0m
+  [1m[35m (2.2ms)[0m  [1m[35mCREATE  INDEX  "index_auctions_on_user_id" ON "auctions"  ("user_id")[0m
+  [1m[35m (1.6ms)[0m  [1m[35mALTER TABLE "auctions" ADD CONSTRAINT "fk_rails_a21a834151"
+FOREIGN KEY ("user_id")
+  REFERENCES "users" ("id")
+[0m
+  [1m[36mprimary::SchemaMigration Create (0.6ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20210106185220"]]
+  [1m[35m (0.9ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.7ms)[0m  [1m[34mSELECT "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT pg_advisory_unlock(7998245229184738815)[0m
+  [1m[35m (0.8ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (1.0ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.8ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.9ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT pg_try_advisory_lock(7998245229184738815)[0m
+  [1m[35m (0.6ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.4ms)[0m  [1m[34mSELECT "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT pg_advisory_unlock(7998245229184738815)[0m
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.9ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Create (1.1ms)[0m  [1m[32mINSERT INTO "users" ("first_name", "last_name", "email", "password_digest", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["first_name", "Tula"], ["last_name", "Ankunding"], ["email", "tula.ankunding@example.com"], ["password_digest", "qweqwe"], ["created_at", "2021-01-06 19:10:49.729819"], ["updated_at", "2021-01-06 19:10:49.729819"]]
+  [1m[35m (0.7ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Create (0.3ms)[0m  [1m[32mINSERT INTO "users" ("first_name", "last_name", "email", "password_digest", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["first_name", "Gordon"], ["last_name", "Rolfson"], ["email", "gordon.rolfson@example.com"], ["password_digest", "qweqwe"], ["created_at", "2021-01-06 19:10:49.736348"], ["updated_at", "2021-01-06 19:10:49.736348"]]
+  [1m[35m (0.6ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Create (0.3ms)[0m  [1m[32mINSERT INTO "users" ("first_name", "last_name", "email", "password_digest", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["first_name", "Marvel"], ["last_name", "Balistreri"], ["email", "marvel.balistreri@example.com"], ["password_digest", "qweqwe"], ["created_at", "2021-01-06 19:10:49.740786"], ["updated_at", "2021-01-06 19:10:49.740786"]]
+  [1m[35m (0.5ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Create (0.6ms)[0m  [1m[32mINSERT INTO "users" ("first_name", "last_name", "email", "password_digest", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["first_name", "Molly"], ["last_name", "Schaden"], ["email", "molly.schaden@example.com"], ["password_digest", "qweqwe"], ["created_at", "2021-01-06 19:10:49.745008"], ["updated_at", "2021-01-06 19:10:49.745008"]]
+  [1m[35m (0.8ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Create (0.3ms)[0m  [1m[32mINSERT INTO "users" ("first_name", "last_name", "email", "password_digest", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["first_name", "Parker"], ["last_name", "Maggio"], ["email", "parker.maggio@example.com"], ["password_digest", "qweqwe"], ["created_at", "2021-01-06 19:10:49.749634"], ["updated_at", "2021-01-06 19:10:49.749634"]]
+  [1m[35m (0.6ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Create (0.3ms)[0m  [1m[32mINSERT INTO "users" ("first_name", "last_name", "email", "password_digest", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["first_name", "Emmanuel"], ["last_name", "Lang"], ["email", "emmanuel.lang@example.com"], ["password_digest", "qweqwe"], ["created_at", "2021-01-06 19:10:49.753665"], ["updated_at", "2021-01-06 19:10:49.753665"]]
+  [1m[35m (0.6ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Create (0.3ms)[0m  [1m[32mINSERT INTO "users" ("first_name", "last_name", "email", "password_digest", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["first_name", "Ralph"], ["last_name", "Stiedemann"], ["email", "ralph.stiedemann@example.com"], ["password_digest", "qweqwe"], ["created_at", "2021-01-06 19:10:49.757412"], ["updated_at", "2021-01-06 19:10:49.757412"]]
+  [1m[35m (0.6ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Create (0.6ms)[0m  [1m[32mINSERT INTO "users" ("first_name", "last_name", "email", "password_digest", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["first_name", "Darell"], ["last_name", "Wunsch"], ["email", "darell.wunsch@example.com"], ["password_digest", "qweqwe"], ["created_at", "2021-01-06 19:10:49.761078"], ["updated_at", "2021-01-06 19:10:49.761078"]]
+  [1m[35m (0.7ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Create (0.5ms)[0m  [1m[32mINSERT INTO "users" ("first_name", "last_name", "email", "password_digest", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["first_name", "Arlen"], ["last_name", "Sipes"], ["email", "arlen.sipes@example.com"], ["password_digest", "qweqwe"], ["created_at", "2021-01-06 19:10:49.765087"], ["updated_at", "2021-01-06 19:10:49.765087"]]
+  [1m[35m (0.8ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Create (0.4ms)[0m  [1m[32mINSERT INTO "users" ("first_name", "last_name", "email", "password_digest", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["first_name", "Ezekiel"], ["last_name", "Bernier"], ["email", "ezekiel.bernier@example.com"], ["password_digest", "qweqwe"], ["created_at", "2021-01-06 19:10:49.769093"], ["updated_at", "2021-01-06 19:10:49.769093"]]
+  [1m[35m (0.8ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mAuction Load (1.2ms)[0m  [1m[34mSELECT "auctions".* FROM "auctions"[0m
+  [1m[35m (0.8ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Create (0.7ms)[0m  [1m[32mINSERT INTO "users" ("first_name", "last_name", "email", "password_digest", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["first_name", "Olin"], ["last_name", "Wolf"], ["email", "olin.wolf@example.com"], ["password_digest", "qweqwe"], ["created_at", "2021-01-06 19:12:14.120396"], ["updated_at", "2021-01-06 19:12:14.120396"]]
+  [1m[35m (0.8ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Create (0.6ms)[0m  [1m[32mINSERT INTO "users" ("first_name", "last_name", "email", "password_digest", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["first_name", "Hannah"], ["last_name", "Murazik"], ["email", "hannah.murazik@example.com"], ["password_digest", "qweqwe"], ["created_at", "2021-01-06 19:12:14.128057"], ["updated_at", "2021-01-06 19:12:14.128057"]]
+  [1m[35m (0.7ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Create (0.5ms)[0m  [1m[32mINSERT INTO "users" ("first_name", "last_name", "email", "password_digest", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["first_name", "Nydia"], ["last_name", "Ratke"], ["email", "nydia.ratke@example.com"], ["password_digest", "qweqwe"], ["created_at", "2021-01-06 19:12:14.136320"], ["updated_at", "2021-01-06 19:12:14.136320"]]
+  [1m[35m (0.9ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Create (0.5ms)[0m  [1m[32mINSERT INTO "users" ("first_name", "last_name", "email", "password_digest", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["first_name", "Douglass"], ["last_name", "Sauer"], ["email", "douglass.sauer@example.com"], ["password_digest", "qweqwe"], ["created_at", "2021-01-06 19:12:14.145435"], ["updated_at", "2021-01-06 19:12:14.145435"]]
+  [1m[35m (0.7ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Create (0.7ms)[0m  [1m[32mINSERT INTO "users" ("first_name", "last_name", "email", "password_digest", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["first_name", "Katina"], ["last_name", "Altenwerth"], ["email", "katina.altenwerth@example.com"], ["password_digest", "qweqwe"], ["created_at", "2021-01-06 19:12:14.153395"], ["updated_at", "2021-01-06 19:12:14.153395"]]
+  [1m[35m (0.8ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Create (0.6ms)[0m  [1m[32mINSERT INTO "users" ("first_name", "last_name", "email", "password_digest", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["first_name", "Nilda"], ["last_name", "Schroeder"], ["email", "nilda.schroeder@example.com"], ["password_digest", "qweqwe"], ["created_at", "2021-01-06 19:12:14.160796"], ["updated_at", "2021-01-06 19:12:14.160796"]]
+  [1m[35m (0.9ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Create (0.6ms)[0m  [1m[32mINSERT INTO "users" ("first_name", "last_name", "email", "password_digest", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["first_name", "Saul"], ["last_name", "Feest"], ["email", "saul.feest@example.com"], ["password_digest", "qweqwe"], ["created_at", "2021-01-06 19:12:14.169887"], ["updated_at", "2021-01-06 19:12:14.169887"]]
+  [1m[35m (0.7ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Create (0.5ms)[0m  [1m[32mINSERT INTO "users" ("first_name", "last_name", "email", "password_digest", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["first_name", "Ena"], ["last_name", "Zemlak"], ["email", "ena.zemlak@example.com"], ["password_digest", "qweqwe"], ["created_at", "2021-01-06 19:12:14.180201"], ["updated_at", "2021-01-06 19:12:14.180201"]]
+  [1m[35m (0.7ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Create (0.4ms)[0m  [1m[32mINSERT INTO "users" ("first_name", "last_name", "email", "password_digest", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["first_name", "Naoma"], ["last_name", "Rippin"], ["email", "naoma.rippin@example.com"], ["password_digest", "qweqwe"], ["created_at", "2021-01-06 19:12:14.187721"], ["updated_at", "2021-01-06 19:12:14.187721"]]
+  [1m[35m (0.6ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Create (0.4ms)[0m  [1m[32mINSERT INTO "users" ("first_name", "last_name", "email", "password_digest", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["first_name", "Luis"], ["last_name", "Buckridge"], ["email", "luis.buckridge@example.com"], ["password_digest", "qweqwe"], ["created_at", "2021-01-06 19:12:14.194181"], ["updated_at", "2021-01-06 19:12:14.194181"]]
+  [1m[35m (0.7ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.6ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Create (0.6ms)[0m  [1m[32mINSERT INTO "users" ("first_name", "last_name", "email", "password_digest", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["first_name", "Lindsey"], ["last_name", "Ledner"], ["email", "lindsey.ledner@example.com"], ["password_digest", "qweqwe"], ["created_at", "2021-01-06 19:12:25.750595"], ["updated_at", "2021-01-06 19:12:25.750595"]]
+  [1m[35m (1.3ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Create (0.3ms)[0m  [1m[32mINSERT INTO "users" ("first_name", "last_name", "email", "password_digest", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["first_name", "Selena"], ["last_name", "Hoeger"], ["email", "selena.hoeger@example.com"], ["password_digest", "qweqwe"], ["created_at", "2021-01-06 19:12:25.756180"], ["updated_at", "2021-01-06 19:12:25.756180"]]
+  [1m[35m (0.6ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Create (0.2ms)[0m  [1m[32mINSERT INTO "users" ("first_name", "last_name", "email", "password_digest", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["first_name", "Stepanie"], ["last_name", "Feil"], ["email", "stepanie.feil@example.com"], ["password_digest", "qweqwe"], ["created_at", "2021-01-06 19:12:25.760132"], ["updated_at", "2021-01-06 19:12:25.760132"]]
+  [1m[35m (0.4ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Create (0.3ms)[0m  [1m[32mINSERT INTO "users" ("first_name", "last_name", "email", "password_digest", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["first_name", "Leigh"], ["last_name", "Frami"], ["email", "leigh.frami@example.com"], ["password_digest", "qweqwe"], ["created_at", "2021-01-06 19:12:25.763558"], ["updated_at", "2021-01-06 19:12:25.763558"]]
+  [1m[35m (0.7ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Create (0.3ms)[0m  [1m[32mINSERT INTO "users" ("first_name", "last_name", "email", "password_digest", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["first_name", "Emelia"], ["last_name", "Tillman"], ["email", "emelia.tillman@example.com"], ["password_digest", "qweqwe"], ["created_at", "2021-01-06 19:12:25.767233"], ["updated_at", "2021-01-06 19:12:25.767233"]]
+  [1m[35m (0.4ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Create (0.3ms)[0m  [1m[32mINSERT INTO "users" ("first_name", "last_name", "email", "password_digest", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["first_name", "Chad"], ["last_name", "Koelpin"], ["email", "chad.koelpin@example.com"], ["password_digest", "qweqwe"], ["created_at", "2021-01-06 19:12:25.770683"], ["updated_at", "2021-01-06 19:12:25.770683"]]
+  [1m[35m (0.6ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Create (0.3ms)[0m  [1m[32mINSERT INTO "users" ("first_name", "last_name", "email", "password_digest", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["first_name", "Elias"], ["last_name", "Langworth"], ["email", "elias.langworth@example.com"], ["password_digest", "qweqwe"], ["created_at", "2021-01-06 19:12:25.774261"], ["updated_at", "2021-01-06 19:12:25.774261"]]
+  [1m[35m (0.5ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Create (0.4ms)[0m  [1m[32mINSERT INTO "users" ("first_name", "last_name", "email", "password_digest", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["first_name", "Doretta"], ["last_name", "Huels"], ["email", "doretta.huels@example.com"], ["password_digest", "qweqwe"], ["created_at", "2021-01-06 19:12:25.777608"], ["updated_at", "2021-01-06 19:12:25.777608"]]
+  [1m[35m (0.6ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Create (0.3ms)[0m  [1m[32mINSERT INTO "users" ("first_name", "last_name", "email", "password_digest", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["first_name", "Carli"], ["last_name", "Hilpert"], ["email", "carli.hilpert@example.com"], ["password_digest", "qweqwe"], ["created_at", "2021-01-06 19:12:25.781336"], ["updated_at", "2021-01-06 19:12:25.781336"]]
+  [1m[35m (0.8ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Create (0.2ms)[0m  [1m[32mINSERT INTO "users" ("first_name", "last_name", "email", "password_digest", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["first_name", "Warner"], ["last_name", "Borer"], ["email", "warner.borer@example.com"], ["password_digest", "qweqwe"], ["created_at", "2021-01-06 19:12:25.785708"], ["updated_at", "2021-01-06 19:12:25.785708"]]
+  [1m[35m (0.6ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mAuction Load (0.6ms)[0m  [1m[34mSELECT "auctions".* FROM "auctions"[0m
+  [1m[35m (0.6ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.9ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Create (0.6ms)[0m  [1m[32mINSERT INTO "users" ("first_name", "last_name", "email", "password_digest", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["first_name", "Laurene"], ["last_name", "Reichel"], ["email", "laurene.reichel@example.com"], ["password_digest", "qweqwe"], ["created_at", "2021-01-06 19:13:05.680667"], ["updated_at", "2021-01-06 19:13:05.680667"]]
+  [1m[35m (0.7ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Create (0.6ms)[0m  [1m[32mINSERT INTO "users" ("first_name", "last_name", "email", "password_digest", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["first_name", "Ronald"], ["last_name", "King"], ["email", "ronald.king@example.com"], ["password_digest", "qweqwe"], ["created_at", "2021-01-06 19:13:05.685509"], ["updated_at", "2021-01-06 19:13:05.685509"]]
+  [1m[35m (0.5ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Create (0.3ms)[0m  [1m[32mINSERT INTO "users" ("first_name", "last_name", "email", "password_digest", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["first_name", "Dalia"], ["last_name", "Hamill"], ["email", "dalia.hamill@example.com"], ["password_digest", "qweqwe"], ["created_at", "2021-01-06 19:13:05.689426"], ["updated_at", "2021-01-06 19:13:05.689426"]]
+  [1m[35m (0.6ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Create (0.2ms)[0m  [1m[32mINSERT INTO "users" ("first_name", "last_name", "email", "password_digest", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["first_name", "Nell"], ["last_name", "Stiedemann"], ["email", "nell.stiedemann@example.com"], ["password_digest", "qweqwe"], ["created_at", "2021-01-06 19:13:05.692924"], ["updated_at", "2021-01-06 19:13:05.692924"]]
+  [1m[35m (0.6ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Create (0.3ms)[0m  [1m[32mINSERT INTO "users" ("first_name", "last_name", "email", "password_digest", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["first_name", "Chet"], ["last_name", "Kiehn"], ["email", "chet.kiehn@example.com"], ["password_digest", "qweqwe"], ["created_at", "2021-01-06 19:13:05.696529"], ["updated_at", "2021-01-06 19:13:05.696529"]]
+  [1m[35m (0.6ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Create (0.3ms)[0m  [1m[32mINSERT INTO "users" ("first_name", "last_name", "email", "password_digest", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["first_name", "Horace"], ["last_name", "Gulgowski"], ["email", "horace.gulgowski@example.com"], ["password_digest", "qweqwe"], ["created_at", "2021-01-06 19:13:05.700053"], ["updated_at", "2021-01-06 19:13:05.700053"]]
+  [1m[35m (0.5ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Create (0.2ms)[0m  [1m[32mINSERT INTO "users" ("first_name", "last_name", "email", "password_digest", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["first_name", "Shandi"], ["last_name", "Rice"], ["email", "shandi.rice@example.com"], ["password_digest", "qweqwe"], ["created_at", "2021-01-06 19:13:05.703385"], ["updated_at", "2021-01-06 19:13:05.703385"]]
+  [1m[35m (0.6ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Create (0.3ms)[0m  [1m[32mINSERT INTO "users" ("first_name", "last_name", "email", "password_digest", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["first_name", "Grayce"], ["last_name", "Hayes"], ["email", "grayce.hayes@example.com"], ["password_digest", "qweqwe"], ["created_at", "2021-01-06 19:13:05.706831"], ["updated_at", "2021-01-06 19:13:05.706831"]]
+  [1m[35m (0.5ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Create (0.4ms)[0m  [1m[32mINSERT INTO "users" ("first_name", "last_name", "email", "password_digest", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["first_name", "John"], ["last_name", "Boehm"], ["email", "john.boehm@example.com"], ["password_digest", "qweqwe"], ["created_at", "2021-01-06 19:13:05.710421"], ["updated_at", "2021-01-06 19:13:05.710421"]]
+  [1m[35m (0.7ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Create (0.3ms)[0m  [1m[32mINSERT INTO "users" ("first_name", "last_name", "email", "password_digest", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["first_name", "Christi"], ["last_name", "Johnson"], ["email", "christi.johnson@example.com"], ["password_digest", "qweqwe"], ["created_at", "2021-01-06 19:13:05.714279"], ["updated_at", "2021-01-06 19:13:05.714279"]]
+  [1m[35m (0.6ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mAuction Load (0.6ms)[0m  [1m[34mSELECT "auctions".* FROM "auctions"[0m
+  [1m[35m (0.6ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Create (0.6ms)[0m  [1m[32mINSERT INTO "users" ("first_name", "last_name", "email", "password_digest", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["first_name", "Carla"], ["last_name", "Wuckert"], ["email", "carla.wuckert@example.com"], ["password_digest", "qweqwe"], ["created_at", "2021-01-06 19:13:30.076949"], ["updated_at", "2021-01-06 19:13:30.076949"]]
+  [1m[35m (1.2ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Create (0.3ms)[0m  [1m[32mINSERT INTO "users" ("first_name", "last_name", "email", "password_digest", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["first_name", "Augustus"], ["last_name", "Hane"], ["email", "augustus.hane@example.com"], ["password_digest", "qweqwe"], ["created_at", "2021-01-06 19:13:30.081898"], ["updated_at", "2021-01-06 19:13:30.081898"]]
+  [1m[35m (0.5ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Create (0.3ms)[0m  [1m[32mINSERT INTO "users" ("first_name", "last_name", "email", "password_digest", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["first_name", "Ahmed"], ["last_name", "Wehner"], ["email", "ahmed.wehner@example.com"], ["password_digest", "qweqwe"], ["created_at", "2021-01-06 19:13:30.085546"], ["updated_at", "2021-01-06 19:13:30.085546"]]
+  [1m[35m (0.6ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Create (0.3ms)[0m  [1m[32mINSERT INTO "users" ("first_name", "last_name", "email", "password_digest", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["first_name", "Numbers"], ["last_name", "Bernier"], ["email", "numbers.bernier@example.com"], ["password_digest", "qweqwe"], ["created_at", "2021-01-06 19:13:30.089106"], ["updated_at", "2021-01-06 19:13:30.089106"]]
+  [1m[35m (0.5ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Create (0.2ms)[0m  [1m[32mINSERT INTO "users" ("first_name", "last_name", "email", "password_digest", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["first_name", "Mervin"], ["last_name", "Connelly"], ["email", "mervin.connelly@example.com"], ["password_digest", "qweqwe"], ["created_at", "2021-01-06 19:13:30.092513"], ["updated_at", "2021-01-06 19:13:30.092513"]]
+  [1m[35m (0.6ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Create (0.3ms)[0m  [1m[32mINSERT INTO "users" ("first_name", "last_name", "email", "password_digest", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["first_name", "Patience"], ["last_name", "Pagac"], ["email", "patience.pagac@example.com"], ["password_digest", "qweqwe"], ["created_at", "2021-01-06 19:13:30.095849"], ["updated_at", "2021-01-06 19:13:30.095849"]]
+  [1m[35m (0.6ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Create (0.7ms)[0m  [1m[32mINSERT INTO "users" ("first_name", "last_name", "email", "password_digest", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["first_name", "Marianela"], ["last_name", "Marks"], ["email", "marianela.marks@example.com"], ["password_digest", "qweqwe"], ["created_at", "2021-01-06 19:13:30.099374"], ["updated_at", "2021-01-06 19:13:30.099374"]]
+  [1m[35m (0.7ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Create (0.3ms)[0m  [1m[32mINSERT INTO "users" ("first_name", "last_name", "email", "password_digest", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["first_name", "Kathi"], ["last_name", "West"], ["email", "kathi.west@example.com"], ["password_digest", "qweqwe"], ["created_at", "2021-01-06 19:13:30.103455"], ["updated_at", "2021-01-06 19:13:30.103455"]]
+  [1m[35m (0.4ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Create (0.4ms)[0m  [1m[32mINSERT INTO "users" ("first_name", "last_name", "email", "password_digest", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["first_name", "Ozie"], ["last_name", "Cassin"], ["email", "ozie.cassin@example.com"], ["password_digest", "qweqwe"], ["created_at", "2021-01-06 19:13:30.107180"], ["updated_at", "2021-01-06 19:13:30.107180"]]
+  [1m[35m (0.6ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Create (0.2ms)[0m  [1m[32mINSERT INTO "users" ("first_name", "last_name", "email", "password_digest", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["first_name", "Karly"], ["last_name", "Monahan"], ["email", "karly.monahan@example.com"], ["password_digest", "qweqwe"], ["created_at", "2021-01-06 19:13:30.110794"], ["updated_at", "2021-01-06 19:13:30.110794"]]
+  [1m[35m (0.5ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mAuction Load (0.6ms)[0m  [1m[34mSELECT "auctions".* FROM "auctions"[0m
+  [1m[35m (0.6ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Create (0.7ms)[0m  [1m[32mINSERT INTO "users" ("first_name", "last_name", "email", "password_digest", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["first_name", "Janay"], ["last_name", "Davis"], ["email", "janay.davis@example.com"], ["password_digest", "qweqwe"], ["created_at", "2021-01-06 19:13:56.259996"], ["updated_at", "2021-01-06 19:13:56.259996"]]
+  [1m[35m (1.3ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Create (0.3ms)[0m  [1m[32mINSERT INTO "users" ("first_name", "last_name", "email", "password_digest", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["first_name", "Quinton"], ["last_name", "Hayes"], ["email", "quinton.hayes@example.com"], ["password_digest", "qweqwe"], ["created_at", "2021-01-06 19:13:56.265872"], ["updated_at", "2021-01-06 19:13:56.265872"]]
+  [1m[35m (0.5ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Create (0.3ms)[0m  [1m[32mINSERT INTO "users" ("first_name", "last_name", "email", "password_digest", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["first_name", "Jan"], ["last_name", "Frami"], ["email", "jan.frami@example.com"], ["password_digest", "qweqwe"], ["created_at", "2021-01-06 19:13:56.269825"], ["updated_at", "2021-01-06 19:13:56.269825"]]
+  [1m[35m (0.5ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Create (0.3ms)[0m  [1m[32mINSERT INTO "users" ("first_name", "last_name", "email", "password_digest", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["first_name", "Kattie"], ["last_name", "Padberg"], ["email", "kattie.padberg@example.com"], ["password_digest", "qweqwe"], ["created_at", "2021-01-06 19:13:56.273459"], ["updated_at", "2021-01-06 19:13:56.273459"]]
+  [1m[35m (0.6ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Create (0.2ms)[0m  [1m[32mINSERT INTO "users" ("first_name", "last_name", "email", "password_digest", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["first_name", "Freddy"], ["last_name", "Wisoky"], ["email", "freddy.wisoky@example.com"], ["password_digest", "qweqwe"], ["created_at", "2021-01-06 19:13:56.277175"], ["updated_at", "2021-01-06 19:13:56.277175"]]
+  [1m[35m (0.4ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Create (0.2ms)[0m  [1m[32mINSERT INTO "users" ("first_name", "last_name", "email", "password_digest", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["first_name", "Kizzie"], ["last_name", "Ryan"], ["email", "kizzie.ryan@example.com"], ["password_digest", "qweqwe"], ["created_at", "2021-01-06 19:13:56.280458"], ["updated_at", "2021-01-06 19:13:56.280458"]]
+  [1m[35m (0.4ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Create (0.2ms)[0m  [1m[32mINSERT INTO "users" ("first_name", "last_name", "email", "password_digest", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["first_name", "Danial"], ["last_name", "Balistreri"], ["email", "danial.balistreri@example.com"], ["password_digest", "qweqwe"], ["created_at", "2021-01-06 19:13:56.283919"], ["updated_at", "2021-01-06 19:13:56.283919"]]
+  [1m[35m (0.5ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Create (0.3ms)[0m  [1m[32mINSERT INTO "users" ("first_name", "last_name", "email", "password_digest", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["first_name", "Edra"], ["last_name", "Jaskolski"], ["email", "edra.jaskolski@example.com"], ["password_digest", "qweqwe"], ["created_at", "2021-01-06 19:13:56.287387"], ["updated_at", "2021-01-06 19:13:56.287387"]]
+  [1m[35m (0.6ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Create (0.2ms)[0m  [1m[32mINSERT INTO "users" ("first_name", "last_name", "email", "password_digest", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["first_name", "Luz"], ["last_name", "Cummerata"], ["email", "luz.cummerata@example.com"], ["password_digest", "qweqwe"], ["created_at", "2021-01-06 19:13:56.291270"], ["updated_at", "2021-01-06 19:13:56.291270"]]
+  [1m[35m (0.6ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Create (0.2ms)[0m  [1m[32mINSERT INTO "users" ("first_name", "last_name", "email", "password_digest", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["first_name", "Moses"], ["last_name", "Thiel"], ["email", "moses.thiel@example.com"], ["password_digest", "qweqwe"], ["created_at", "2021-01-06 19:13:56.294860"], ["updated_at", "2021-01-06 19:13:56.294860"]]
+  [1m[35m (0.5ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mAuction Load (0.6ms)[0m  [1m[34mSELECT "auctions".* FROM "auctions"[0m
+  [1m[35m (0.6ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Create (0.6ms)[0m  [1m[32mINSERT INTO "users" ("first_name", "last_name", "email", "password_digest", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["first_name", "Marvin"], ["last_name", "Tromp"], ["email", "marvin.tromp@example.com"], ["password_digest", "qweqwe"], ["created_at", "2021-01-06 19:14:24.226850"], ["updated_at", "2021-01-06 19:14:24.226850"]]
+  [1m[35m (1.0ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Create (0.3ms)[0m  [1m[32mINSERT INTO "users" ("first_name", "last_name", "email", "password_digest", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["first_name", "Jacinto"], ["last_name", "Feeney"], ["email", "jacinto.feeney@example.com"], ["password_digest", "qweqwe"], ["created_at", "2021-01-06 19:14:24.231678"], ["updated_at", "2021-01-06 19:14:24.231678"]]
+  [1m[35m (0.6ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Create (0.3ms)[0m  [1m[32mINSERT INTO "users" ("first_name", "last_name", "email", "password_digest", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["first_name", "Clyde"], ["last_name", "Sanford"], ["email", "clyde.sanford@example.com"], ["password_digest", "qweqwe"], ["created_at", "2021-01-06 19:14:24.235754"], ["updated_at", "2021-01-06 19:14:24.235754"]]
+  [1m[35m (0.5ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Create (0.3ms)[0m  [1m[32mINSERT INTO "users" ("first_name", "last_name", "email", "password_digest", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["first_name", "Rey"], ["last_name", "Harris"], ["email", "rey.harris@example.com"], ["password_digest", "qweqwe"], ["created_at", "2021-01-06 19:14:24.239644"], ["updated_at", "2021-01-06 19:14:24.239644"]]
+  [1m[35m (0.6ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Create (0.3ms)[0m  [1m[32mINSERT INTO "users" ("first_name", "last_name", "email", "password_digest", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["first_name", "Josef"], ["last_name", "Mann"], ["email", "josef.mann@example.com"], ["password_digest", "qweqwe"], ["created_at", "2021-01-06 19:14:24.243811"], ["updated_at", "2021-01-06 19:14:24.243811"]]
+  [1m[35m (0.6ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Create (0.3ms)[0m  [1m[32mINSERT INTO "users" ("first_name", "last_name", "email", "password_digest", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["first_name", "Stephnie"], ["last_name", "Doyle"], ["email", "stephnie.doyle@example.com"], ["password_digest", "qweqwe"], ["created_at", "2021-01-06 19:14:24.247462"], ["updated_at", "2021-01-06 19:14:24.247462"]]
+  [1m[35m (0.6ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Create (0.9ms)[0m  [1m[32mINSERT INTO "users" ("first_name", "last_name", "email", "password_digest", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["first_name", "Wilbur"], ["last_name", "Barrows"], ["email", "wilbur.barrows@example.com"], ["password_digest", "qweqwe"], ["created_at", "2021-01-06 19:14:24.251095"], ["updated_at", "2021-01-06 19:14:24.251095"]]
+  [1m[35m (0.6ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Create (0.3ms)[0m  [1m[32mINSERT INTO "users" ("first_name", "last_name", "email", "password_digest", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["first_name", "Vernon"], ["last_name", "Rolfson"], ["email", "vernon.rolfson@example.com"], ["password_digest", "qweqwe"], ["created_at", "2021-01-06 19:14:24.256259"], ["updated_at", "2021-01-06 19:14:24.256259"]]
+  [1m[35m (0.6ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Create (0.4ms)[0m  [1m[32mINSERT INTO "users" ("first_name", "last_name", "email", "password_digest", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["first_name", "Eli"], ["last_name", "Romaguera"], ["email", "eli.romaguera@example.com"], ["password_digest", "qweqwe"], ["created_at", "2021-01-06 19:14:24.260275"], ["updated_at", "2021-01-06 19:14:24.260275"]]
+  [1m[35m (0.7ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Create (0.4ms)[0m  [1m[32mINSERT INTO "users" ("first_name", "last_name", "email", "password_digest", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["first_name", "Merlene"], ["last_name", "Stroman"], ["email", "merlene.stroman@example.com"], ["password_digest", "qweqwe"], ["created_at", "2021-01-06 19:14:24.264858"], ["updated_at", "2021-01-06 19:14:24.264858"]]
+  [1m[35m (0.6ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mAuction Load (0.8ms)[0m  [1m[34mSELECT "auctions".* FROM "auctions"[0m
+  [1m[35m (0.6ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Create (0.9ms)[0m  [1m[32mINSERT INTO "users" ("first_name", "last_name", "email", "password_digest", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["first_name", "Bryanna"], ["last_name", "Bauch"], ["email", "bryanna.bauch@example.com"], ["password_digest", "qweqwe"], ["created_at", "2021-01-06 19:16:25.442053"], ["updated_at", "2021-01-06 19:16:25.442053"]]
+  [1m[35m (1.0ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Create (0.2ms)[0m  [1m[32mINSERT INTO "users" ("first_name", "last_name", "email", "password_digest", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["first_name", "Micheal"], ["last_name", "Carroll"], ["email", "micheal.carroll@example.com"], ["password_digest", "qweqwe"], ["created_at", "2021-01-06 19:16:25.447342"], ["updated_at", "2021-01-06 19:16:25.447342"]]
+  [1m[35m (0.5ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Create (0.5ms)[0m  [1m[32mINSERT INTO "users" ("first_name", "last_name", "email", "password_digest", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["first_name", "Loura"], ["last_name", "Corwin"], ["email", "loura.corwin@example.com"], ["password_digest", "qweqwe"], ["created_at", "2021-01-06 19:16:25.450731"], ["updated_at", "2021-01-06 19:16:25.450731"]]
+  [1m[35m (0.6ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Create (0.2ms)[0m  [1m[32mINSERT INTO "users" ("first_name", "last_name", "email", "password_digest", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["first_name", "Kimber"], ["last_name", "Herzog"], ["email", "kimber.herzog@example.com"], ["password_digest", "qweqwe"], ["created_at", "2021-01-06 19:16:25.454715"], ["updated_at", "2021-01-06 19:16:25.454715"]]
+  [1m[35m (0.6ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Create (0.3ms)[0m  [1m[32mINSERT INTO "users" ("first_name", "last_name", "email", "password_digest", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["first_name", "Aron"], ["last_name", "Schmeler"], ["email", "aron.schmeler@example.com"], ["password_digest", "qweqwe"], ["created_at", "2021-01-06 19:16:25.458226"], ["updated_at", "2021-01-06 19:16:25.458226"]]
+  [1m[35m (0.5ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Create (0.5ms)[0m  [1m[32mINSERT INTO "users" ("first_name", "last_name", "email", "password_digest", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["first_name", "Ignacio"], ["last_name", "Franecki"], ["email", "ignacio.franecki@example.com"], ["password_digest", "qweqwe"], ["created_at", "2021-01-06 19:16:25.464177"], ["updated_at", "2021-01-06 19:16:25.464177"]]
+  [1m[35m (0.7ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Create (0.6ms)[0m  [1m[32mINSERT INTO "users" ("first_name", "last_name", "email", "password_digest", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["first_name", "Donald"], ["last_name", "Homenick"], ["email", "donald.homenick@example.com"], ["password_digest", "qweqwe"], ["created_at", "2021-01-06 19:16:25.471142"], ["updated_at", "2021-01-06 19:16:25.471142"]]
+  [1m[35m (0.7ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Create (0.3ms)[0m  [1m[32mINSERT INTO "users" ("first_name", "last_name", "email", "password_digest", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["first_name", "Jonathan"], ["last_name", "Prosacco"], ["email", "jonathan.prosacco@example.com"], ["password_digest", "qweqwe"], ["created_at", "2021-01-06 19:16:25.476077"], ["updated_at", "2021-01-06 19:16:25.476077"]]
+  [1m[35m (0.6ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Create (0.3ms)[0m  [1m[32mINSERT INTO "users" ("first_name", "last_name", "email", "password_digest", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["first_name", "Geraldo"], ["last_name", "Hilll"], ["email", "geraldo.hilll@example.com"], ["password_digest", "qweqwe"], ["created_at", "2021-01-06 19:16:25.480381"], ["updated_at", "2021-01-06 19:16:25.480381"]]
+  [1m[35m (0.5ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Create (0.8ms)[0m  [1m[32mINSERT INTO "users" ("first_name", "last_name", "email", "password_digest", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["first_name", "Christena"], ["last_name", "Senger"], ["email", "christena.senger@example.com"], ["password_digest", "qweqwe"], ["created_at", "2021-01-06 19:16:25.484244"], ["updated_at", "2021-01-06 19:16:25.484244"]]
+  [1m[35m (0.6ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.6ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Create (0.6ms)[0m  [1m[32mINSERT INTO "users" ("first_name", "last_name", "email", "password_digest", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["first_name", "Maryann"], ["last_name", "Pacocha"], ["email", "maryann.pacocha@example.com"], ["password_digest", "qweqwe"], ["created_at", "2021-01-06 19:17:19.220108"], ["updated_at", "2021-01-06 19:17:19.220108"]]
+  [1m[35m (0.7ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Create (0.5ms)[0m  [1m[32mINSERT INTO "users" ("first_name", "last_name", "email", "password_digest", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["first_name", "Tad"], ["last_name", "Lockman"], ["email", "tad.lockman@example.com"], ["password_digest", "qweqwe"], ["created_at", "2021-01-06 19:17:19.224900"], ["updated_at", "2021-01-06 19:17:19.224900"]]
+  [1m[35m (0.6ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Create (0.4ms)[0m  [1m[32mINSERT INTO "users" ("first_name", "last_name", "email", "password_digest", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["first_name", "Korey"], ["last_name", "Russel"], ["email", "korey.russel@example.com"], ["password_digest", "qweqwe"], ["created_at", "2021-01-06 19:17:19.228941"], ["updated_at", "2021-01-06 19:17:19.228941"]]
+  [1m[35m (0.6ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Create (0.3ms)[0m  [1m[32mINSERT INTO "users" ("first_name", "last_name", "email", "password_digest", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["first_name", "Denice"], ["last_name", "Hoeger"], ["email", "denice.hoeger@example.com"], ["password_digest", "qweqwe"], ["created_at", "2021-01-06 19:17:19.232998"], ["updated_at", "2021-01-06 19:17:19.232998"]]
+  [1m[35m (0.4ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Create (0.2ms)[0m  [1m[32mINSERT INTO "users" ("first_name", "last_name", "email", "password_digest", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["first_name", "Abe"], ["last_name", "Rolfson"], ["email", "abe.rolfson@example.com"], ["password_digest", "qweqwe"], ["created_at", "2021-01-06 19:17:19.237032"], ["updated_at", "2021-01-06 19:17:19.237032"]]
+  [1m[35m (0.6ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Create (0.3ms)[0m  [1m[32mINSERT INTO "users" ("first_name", "last_name", "email", "password_digest", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["first_name", "Willy"], ["last_name", "Robel"], ["email", "willy.robel@example.com"], ["password_digest", "qweqwe"], ["created_at", "2021-01-06 19:17:19.240351"], ["updated_at", "2021-01-06 19:17:19.240351"]]
+  [1m[35m (0.6ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Create (0.4ms)[0m  [1m[32mINSERT INTO "users" ("first_name", "last_name", "email", "password_digest", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["first_name", "Richard"], ["last_name", "Sipes"], ["email", "richard.sipes@example.com"], ["password_digest", "qweqwe"], ["created_at", "2021-01-06 19:17:19.243970"], ["updated_at", "2021-01-06 19:17:19.243970"]]
+  [1m[35m (0.6ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Create (0.3ms)[0m  [1m[32mINSERT INTO "users" ("first_name", "last_name", "email", "password_digest", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["first_name", "Ricardo"], ["last_name", "Wunsch"], ["email", "ricardo.wunsch@example.com"], ["password_digest", "qweqwe"], ["created_at", "2021-01-06 19:17:19.247701"], ["updated_at", "2021-01-06 19:17:19.247701"]]
+  [1m[35m (0.6ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Create (0.3ms)[0m  [1m[32mINSERT INTO "users" ("first_name", "last_name", "email", "password_digest", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["first_name", "Darin"], ["last_name", "Jacobs"], ["email", "darin.jacobs@example.com"], ["password_digest", "qweqwe"], ["created_at", "2021-01-06 19:17:19.251524"], ["updated_at", "2021-01-06 19:17:19.251524"]]
+  [1m[35m (0.6ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Create (0.3ms)[0m  [1m[32mINSERT INTO "users" ("first_name", "last_name", "email", "password_digest", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["first_name", "Bernie"], ["last_name", "Kertzmann"], ["email", "bernie.kertzmann@example.com"], ["password_digest", "qweqwe"], ["created_at", "2021-01-06 19:17:19.255279"], ["updated_at", "2021-01-06 19:17:19.255279"]]
+  [1m[35m (0.5ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mUser Load (0.7ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mAuction Create (6.0ms)[0m  [1m[32mINSERT INTO "auctions" ("title", "body", "amount", "created_at", "updated_at", "user_id") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["title", "I'll reboot the primary XSS capacitor, that should protocol the HTTP bandwidth!"], ["body", "Chuck Norris doesn't need to know about class factory pattern. He can instantiate interfaces."], ["amount", 20027], ["created_at", "2019-08-06 00:00:00"], ["updated_at", "2019-08-06 00:00:00"], ["user_id", 74]]
+  [1m[35m (0.7ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mAuction Create (0.5ms)[0m  [1m[32mINSERT INTO "auctions" ("title", "body", "amount", "created_at", "updated_at", "user_id") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["title", "Try to calculate the JBOD transmitter, maybe it will transmit the redundant circuit!"], ["body", "The programs that Chuck Norris writes don't have version numbers because he only writes them once. If a user reports a bug or has a feature request they don't live to see the sun set."], ["amount", 12701], ["created_at", "2019-05-05 00:00:00"], ["updated_at", "2019-05-05 00:00:00"], ["user_id", 68]]
+  [1m[35m (0.7ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mAuction Create (0.5ms)[0m  [1m[32mINSERT INTO "auctions" ("title", "body", "amount", "created_at", "updated_at", "user_id") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["title", "If we parse the interface, we can get to the COM hard drive through the redundant SQL pixel!"], ["body", "Quantum cryptography does not work on Chuck Norris. When something is being observed by Chuck it stays in the same state until he's finished."], ["amount", 58366], ["created_at", "2016-01-26 00:00:00"], ["updated_at", "2016-01-26 00:00:00"], ["user_id", 26]]
+  [1m[35m (0.6ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mAuction Create (0.4ms)[0m  [1m[32mINSERT INTO "auctions" ("title", "body", "amount", "created_at", "updated_at", "user_id") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["title", "Try to navigate the SMTP array, maybe it will navigate the primary system!"], ["body", "When Chuck Norris gives a method an argument, the method loses."], ["amount", 96684], ["created_at", "2020-05-07 00:00:00"], ["updated_at", "2020-05-07 00:00:00"], ["user_id", 20]]
+  [1m[35m (0.6ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mAuction Create (0.3ms)[0m  [1m[32mINSERT INTO "auctions" ("title", "body", "amount", "created_at", "updated_at", "user_id") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["title", "Use the back-end SMS panel, then you can quantify the online driver!"], ["body", "There is nothing regular about Chuck Norris' expressions."], ["amount", 62868], ["created_at", "2016-12-22 00:00:00"], ["updated_at", "2016-12-22 00:00:00"], ["user_id", 27]]
+  [1m[35m (0.5ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mAuction Create (0.3ms)[0m  [1m[32mINSERT INTO "auctions" ("title", "body", "amount", "created_at", "updated_at", "user_id") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["title", "Synthesizing the circuit won't do anything, we need to hack the solid state smtp feed!"], ["body", "Chuck Norris can access private methods."], ["amount", 10717], ["created_at", "2020-09-27 00:00:00"], ["updated_at", "2020-09-27 00:00:00"], ["user_id", 20]]
+  [1m[35m (0.6ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mAuction Create (0.3ms)[0m  [1m[32mINSERT INTO "auctions" ("title", "body", "amount", "created_at", "updated_at", "user_id") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["title", "We need to reboot the open-source SSL circuit!"], ["body", "Chuck Norris doesn't program with a keyboard. He stares the computer down until it does what he wants."], ["amount", 95492], ["created_at", "2017-07-15 00:00:00"], ["updated_at", "2017-07-15 00:00:00"], ["user_id", 90]]
+  [1m[35m (0.6ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mAuction Create (0.4ms)[0m  [1m[32mINSERT INTO "auctions" ("title", "body", "amount", "created_at", "updated_at", "user_id") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["title", "The SCSI capacitor is down, override the neural system so we can transmit the CSS card!"], ["body", "Anonymous methods and anonymous types are really all called Chuck Norris. They just don't like to boast."], ["amount", 78533], ["created_at", "2019-04-10 00:00:00"], ["updated_at", "2019-04-10 00:00:00"], ["user_id", 27]]
+  [1m[35m (0.7ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mAuction Create (0.3ms)[0m  [1m[32mINSERT INTO "auctions" ("title", "body", "amount", "created_at", "updated_at", "user_id") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["title", "Use the mobile CSS matrix, then you can compress the solid state microchip!"], ["body", "Chuck Norris doesn't pair program."], ["amount", 69959], ["created_at", "2020-10-15 00:00:00"], ["updated_at", "2020-10-15 00:00:00"], ["user_id", 42]]
+  [1m[35m (0.5ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mAuction Create (0.3ms)[0m  [1m[32mINSERT INTO "auctions" ("title", "body", "amount", "created_at", "updated_at", "user_id") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["title", "You can't transmit the sensor without overriding the digital SMTP system!"], ["body", "Chuck Norris never gets a syntax error. Instead, the language gets a DoesNotConformToChuck error."], ["amount", 42567], ["created_at", "2018-05-24 00:00:00"], ["updated_at", "2018-05-24 00:00:00"], ["user_id", 6]]
+  [1m[35m (0.6ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mAuction Create (0.4ms)[0m  [1m[32mINSERT INTO "auctions" ("title", "body", "amount", "created_at", "updated_at", "user_id") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["title", "We need to override the open-source SCSI hard drive!"], ["body", "For Chuck Norris, NP-Hard = O(1)."], ["amount", 61106], ["created_at", "2020-04-04 00:00:00"], ["updated_at", "2020-04-04 00:00:00"], ["user_id", 50]]
+  [1m[35m (0.7ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mAuction Create (0.5ms)[0m  [1m[32mINSERT INTO "auctions" ("title", "body", "amount", "created_at", "updated_at", "user_id") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["title", "I'll copy the mobile HDD hard drive, that should transmitter the RSS bus!"], ["body", "Chuck Norris doesn't use a computer because a computer does everything slower than Chuck Norris."], ["amount", 71038], ["created_at", "2019-11-03 00:00:00"], ["updated_at", "2019-11-03 00:00:00"], ["user_id", 52]]
+  [1m[35m (0.6ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mAuction Create (0.4ms)[0m  [1m[32mINSERT INTO "auctions" ("title", "body", "amount", "created_at", "updated_at", "user_id") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["title", "I'll input the neural IB interface, that should pixel the SMTP feed!"], ["body", "Chuck Norris's keyboard doesn't have a Ctrl key because nothing controls Chuck Norris."], ["amount", 16797], ["created_at", "2018-11-06 00:00:00"], ["updated_at", "2018-11-06 00:00:00"], ["user_id", 2]]
+  [1m[35m (0.7ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mAuction Create (0.3ms)[0m  [1m[32mINSERT INTO "auctions" ("title", "body", "amount", "created_at", "updated_at", "user_id") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["title", "You can't input the array without connecting the auxiliary HTTP transmitter!"], ["body", "Chuck Norris doesn't have performance bottlenecks. He just makes the universe wait its turn."], ["amount", 80985], ["created_at", "2016-04-05 00:00:00"], ["updated_at", "2016-04-05 00:00:00"], ["user_id", 59]]
+  [1m[35m (0.6ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mAuction Create (0.4ms)[0m  [1m[32mINSERT INTO "auctions" ("title", "body", "amount", "created_at", "updated_at", "user_id") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["title", "I'll synthesize the digital AI bandwidth, that should pixel the HDD sensor!"], ["body", "When a bug sees Chuck Norris, it flees screaming in terror, and then immediately self-destructs to avoid being roundhouse-kicked."], ["amount", 9116], ["created_at", "2018-08-26 00:00:00"], ["updated_at", "2018-08-26 00:00:00"], ["user_id", 4]]
+  [1m[35m (0.7ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mAuction Create (0.3ms)[0m  [1m[32mINSERT INTO "auctions" ("title", "body", "amount", "created_at", "updated_at", "user_id") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["title", "Use the back-end HDD application, then you can transmit the cross-platform bus!"], ["body", "Chuck Norris doesn't need a java compiler, he goes straight to .war"], ["amount", 24202], ["created_at", "2018-12-07 00:00:00"], ["updated_at", "2018-12-07 00:00:00"], ["user_id", 8]]
+  [1m[35m (0.6ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mAuction Create (0.5ms)[0m  [1m[32mINSERT INTO "auctions" ("title", "body", "amount", "created_at", "updated_at", "user_id") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["title", "You can't hack the pixel without connecting the cross-platform HTTP capacitor!"], ["body", "Chuck Norris can solve the Towers of Hanoi in one move."], ["amount", 32329], ["created_at", "2019-11-22 00:00:00"], ["updated_at", "2019-11-22 00:00:00"], ["user_id", 32]]
+  [1m[35m (0.5ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mAuction Create (0.6ms)[0m  [1m[32mINSERT INTO "auctions" ("title", "body", "amount", "created_at", "updated_at", "user_id") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["title", "You can't index the bus without transmitting the haptic PCI sensor!"], ["body", "Chuck Norris' keyboard doesn't have a F1 key, the computer asks him for help."], ["amount", 91435], ["created_at", "2019-05-04 00:00:00"], ["updated_at", "2019-05-04 00:00:00"], ["user_id", 2]]
+  [1m[35m (0.7ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mAuction Create (0.3ms)[0m  [1m[32mINSERT INTO "auctions" ("title", "body", "amount", "created_at", "updated_at", "user_id") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["title", "Hacking the interface won't do anything, we need to index the optical http panel!"], ["body", "Chuck Norris never gets a syntax error. Instead, the language gets a DoesNotConformToChuck error."], ["amount", 65462], ["created_at", "2019-02-26 00:00:00"], ["updated_at", "2019-02-26 00:00:00"], ["user_id", 33]]
+  [1m[35m (0.8ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mAuction Create (0.6ms)[0m  [1m[32mINSERT INTO "auctions" ("title", "body", "amount", "created_at", "updated_at", "user_id") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["title", "The AI interface is down, quantify the multi-byte application so we can bypass the ADP sensor!"], ["body", "Chuck Norris solved the Travelling Salesman problem in O(1) time."], ["amount", 52620], ["created_at", "2019-08-26 00:00:00"], ["updated_at", "2019-08-26 00:00:00"], ["user_id", 72]]
+  [1m[35m (0.8ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mAuction Load (0.7ms)[0m  [1m[34mSELECT "auctions".* FROM "auctions"[0m
+  [1m[35m (0.7ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Create (1.3ms)[0m  [1m[32mINSERT INTO "users" ("first_name", "last_name", "email", "password_digest", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["first_name", "Marci"], ["last_name", "Hegmann"], ["email", "marci.hegmann@example.com"], ["password_digest", "qweqwe"], ["created_at", "2021-01-06 19:18:40.068507"], ["updated_at", "2021-01-06 19:18:40.068507"]]
+  [1m[35m (1.1ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Create (0.5ms)[0m  [1m[32mINSERT INTO "users" ("first_name", "last_name", "email", "password_digest", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["first_name", "Hung"], ["last_name", "Huel"], ["email", "hung.huel@example.com"], ["password_digest", "qweqwe"], ["created_at", "2021-01-06 19:18:40.080645"], ["updated_at", "2021-01-06 19:18:40.080645"]]
+  [1m[35m (0.7ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Create (0.5ms)[0m  [1m[32mINSERT INTO "users" ("first_name", "last_name", "email", "password_digest", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["first_name", "Chandra"], ["last_name", "Bergnaum"], ["email", "chandra.bergnaum@example.com"], ["password_digest", "qweqwe"], ["created_at", "2021-01-06 19:18:40.088901"], ["updated_at", "2021-01-06 19:18:40.088901"]]
+  [1m[35m (0.7ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Create (0.6ms)[0m  [1m[32mINSERT INTO "users" ("first_name", "last_name", "email", "password_digest", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["first_name", "Jay"], ["last_name", "Keebler"], ["email", "jay.keebler@example.com"], ["password_digest", "qweqwe"], ["created_at", "2021-01-06 19:18:40.095970"], ["updated_at", "2021-01-06 19:18:40.095970"]]
+  [1m[35m (0.8ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Create (0.5ms)[0m  [1m[32mINSERT INTO "users" ("first_name", "last_name", "email", "password_digest", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["first_name", "Maragret"], ["last_name", "Donnelly"], ["email", "maragret.donnelly@example.com"], ["password_digest", "qweqwe"], ["created_at", "2021-01-06 19:18:40.103256"], ["updated_at", "2021-01-06 19:18:40.103256"]]
+  [1m[35m (0.7ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Create (0.4ms)[0m  [1m[32mINSERT INTO "users" ("first_name", "last_name", "email", "password_digest", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["first_name", "Emerson"], ["last_name", "Kulas"], ["email", "emerson.kulas@example.com"], ["password_digest", "qweqwe"], ["created_at", "2021-01-06 19:18:40.109534"], ["updated_at", "2021-01-06 19:18:40.109534"]]
+  [1m[35m (0.7ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Create (0.4ms)[0m  [1m[32mINSERT INTO "users" ("first_name", "last_name", "email", "password_digest", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["first_name", "Valentine"], ["last_name", "Gleichner"], ["email", "valentine.gleichner@example.com"], ["password_digest", "qweqwe"], ["created_at", "2021-01-06 19:18:40.115093"], ["updated_at", "2021-01-06 19:18:40.115093"]]
+  [1m[35m (0.7ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Create (0.5ms)[0m  [1m[32mINSERT INTO "users" ("first_name", "last_name", "email", "password_digest", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["first_name", "Christen"], ["last_name", "Beier"], ["email", "christen.beier@example.com"], ["password_digest", "qweqwe"], ["created_at", "2021-01-06 19:18:40.120629"], ["updated_at", "2021-01-06 19:18:40.120629"]]
+  [1m[35m (0.7ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Create (0.4ms)[0m  [1m[32mINSERT INTO "users" ("first_name", "last_name", "email", "password_digest", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["first_name", "Casey"], ["last_name", "Walsh"], ["email", "casey.walsh@example.com"], ["password_digest", "qweqwe"], ["created_at", "2021-01-06 19:18:40.126632"], ["updated_at", "2021-01-06 19:18:40.126632"]]
+  [1m[35m (0.6ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Create (0.4ms)[0m  [1m[32mINSERT INTO "users" ("first_name", "last_name", "email", "password_digest", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["first_name", "Keenan"], ["last_name", "O'Hara"], ["email", "keenan.o'hara@example.com"], ["password_digest", "qweqwe"], ["created_at", "2021-01-06 19:18:40.132263"], ["updated_at", "2021-01-06 19:18:40.132263"]]
+  [1m[35m (0.8ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mUser Load (0.9ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mAuction Create (1.0ms)[0m  [1m[32mINSERT INTO "auctions" ("title", "body", "amount", "created_at", "updated_at", "user_id") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["title", "The TCP circuit is down, index the online transmitter so we can back up the SMTP bandwidth!"], ["body", "The programs that Chuck Norris writes don't have version numbers because he only writes them once. If a user reports a bug or has a feature request they don't live to see the sun set."], ["amount", 16760], ["created_at", "2019-02-10 00:00:00"], ["updated_at", "2019-02-10 00:00:00"], ["user_id", 51]]
+  [1m[35m (0.5ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mAuction Create (0.5ms)[0m  [1m[32mINSERT INTO "auctions" ("title", "body", "amount", "created_at", "updated_at", "user_id") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["title", "I'll navigate the optical TCP alarm, that should monitor the PNG card!"], ["body", "Chuck Norris compresses his files by doing a flying round house kick to the hard drive."], ["amount", 71811], ["created_at", "2016-11-17 00:00:00"], ["updated_at", "2016-11-17 00:00:00"], ["user_id", 2]]
+  [1m[35m (0.6ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mAuction Create (0.4ms)[0m  [1m[32mINSERT INTO "auctions" ("title", "body", "amount", "created_at", "updated_at", "user_id") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["title", "Overriding the program won't do anything, we need to compress the haptic png program!"], ["body", "Chuck Norris's keyboard doesn't have a Ctrl key because nothing controls Chuck Norris."], ["amount", 96308], ["created_at", "2019-03-09 00:00:00"], ["updated_at", "2019-03-09 00:00:00"], ["user_id", 63]]
+  [1m[35m (0.7ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mAuction Create (0.6ms)[0m  [1m[32mINSERT INTO "auctions" ("title", "body", "amount", "created_at", "updated_at", "user_id") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["title", "The SSL interface is down, hack the primary system so we can compress the XML transmitter!"], ["body", "Chuck Norris can write infinite recursion functions... and have them return."], ["amount", 12072], ["created_at", "2018-01-29 00:00:00"], ["updated_at", "2018-01-29 00:00:00"], ["user_id", 92]]
+  [1m[35m (0.6ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mAuction Create (0.4ms)[0m  [1m[32mINSERT INTO "auctions" ("title", "body", "amount", "created_at", "updated_at", "user_id") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["title", "We need to quantify the primary COM circuit!"], ["body", "Chuck Norris doesn't get compiler errors, the language changes itself to accommodate Chuck Norris."], ["amount", 41864], ["created_at", "2020-08-20 00:00:00"], ["updated_at", "2020-08-20 00:00:00"], ["user_id", 3]]
+  [1m[35m (0.7ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mAuction Create (0.5ms)[0m  [1m[32mINSERT INTO "auctions" ("title", "body", "amount", "created_at", "updated_at", "user_id") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["title", "Use the 1080p AGP feed, then you can transmit the mobile matrix!"], ["body", "Chuck Norris' programs occupy 150% of CPU, even when they are not executing."], ["amount", 82252], ["created_at", "2017-03-22 00:00:00"], ["updated_at", "2017-03-22 00:00:00"], ["user_id", 90]]
+  [1m[35m (0.7ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mAuction Create (0.5ms)[0m  [1m[32mINSERT INTO "auctions" ("title", "body", "amount", "created_at", "updated_at", "user_id") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["title", "We need to quantify the auxiliary FTP program!"], ["body", "Chuck Norris can compile syntax errors."], ["amount", 47071], ["created_at", "2018-12-31 00:00:00"], ["updated_at", "2018-12-31 00:00:00"], ["user_id", 31]]
+  [1m[35m (0.7ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mAuction Create (0.4ms)[0m  [1m[32mINSERT INTO "auctions" ("title", "body", "amount", "created_at", "updated_at", "user_id") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["title", "If we quantify the sensor, we can get to the JBOD protocol through the virtual IB system!"], ["body", "Chuck Norris writes code that optimizes itself."], ["amount", 18896], ["created_at", "2019-11-12 00:00:00"], ["updated_at", "2019-11-12 00:00:00"], ["user_id", 68]]
+  [1m[35m (0.7ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mAuction Create (0.6ms)[0m  [1m[32mINSERT INTO "auctions" ("title", "body", "amount", "created_at", "updated_at", "user_id") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["title", "You can't quantify the monitor without calculating the bluetooth IB driver!"], ["body", "The class object inherits from Chuck Norris."], ["amount", 4466], ["created_at", "2020-08-01 00:00:00"], ["updated_at", "2020-08-01 00:00:00"], ["user_id", 50]]
+  [1m[35m (0.7ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mAuction Create (0.8ms)[0m  [1m[32mINSERT INTO "auctions" ("title", "body", "amount", "created_at", "updated_at", "user_id") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["title", "Try to calculate the THX sensor, maybe it will bypass the wireless interface!"], ["body", "\"It works on my machine\" always holds true for Chuck Norris."], ["amount", 11455], ["created_at", "2018-07-09 00:00:00"], ["updated_at", "2018-07-09 00:00:00"], ["user_id", 78]]
+  [1m[35m (0.8ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mAuction Create (0.6ms)[0m  [1m[32mINSERT INTO "auctions" ("title", "body", "amount", "created_at", "updated_at", "user_id") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["title", "Use the back-end CSS matrix, then you can parse the wireless alarm!"], ["body", "Chuck Norris's keyboard doesn't have a Ctrl key because nothing controls Chuck Norris."], ["amount", 28888], ["created_at", "2018-09-26 00:00:00"], ["updated_at", "2018-09-26 00:00:00"], ["user_id", 52]]
+  [1m[35m (0.6ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mAuction Create (0.5ms)[0m  [1m[32mINSERT INTO "auctions" ("title", "body", "amount", "created_at", "updated_at", "user_id") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["title", "If we copy the panel, we can get to the PCI array through the multi-byte SSL alarm!"], ["body", "Chuck Norris can access the DB from the UI."], ["amount", 73944], ["created_at", "2020-01-31 00:00:00"], ["updated_at", "2020-01-31 00:00:00"], ["user_id", 72]]
+  [1m[35m (0.7ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mAuction Create (0.6ms)[0m  [1m[32mINSERT INTO "auctions" ("title", "body", "amount", "created_at", "updated_at", "user_id") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["title", "If we input the capacitor, we can get to the EXE feed through the primary IB transmitter!"], ["body", "Chuck Norris doesn't need a debugger, he just stares down the bug until the code confesses."], ["amount", 42917], ["created_at", "2020-01-12 00:00:00"], ["updated_at", "2020-01-12 00:00:00"], ["user_id", 68]]
+  [1m[35m (0.8ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mAuction Create (0.4ms)[0m  [1m[32mINSERT INTO "auctions" ("title", "body", "amount", "created_at", "updated_at", "user_id") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["title", "If we input the firewall, we can get to the GB driver through the solid state SMTP program!"], ["body", "Chuck Norris finished World of Warcraft."], ["amount", 36035], ["created_at", "2020-10-28 00:00:00"], ["updated_at", "2020-10-28 00:00:00"], ["user_id", 81]]
+  [1m[35m (0.6ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mAuction Create (0.4ms)[0m  [1m[32mINSERT INTO "auctions" ("title", "body", "amount", "created_at", "updated_at", "user_id") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["title", "If we input the array, we can get to the HDD application through the optical SDD array!"], ["body", "When Chuck Norris points to null, null quakes in fear."], ["amount", 55556], ["created_at", "2018-07-05 00:00:00"], ["updated_at", "2018-07-05 00:00:00"], ["user_id", 82]]
+  [1m[35m (0.7ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mAuction Create (0.6ms)[0m  [1m[32mINSERT INTO "auctions" ("title", "body", "amount", "created_at", "updated_at", "user_id") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["title", "Use the redundant USB sensor, then you can synthesize the digital panel!"], ["body", "Chuck Norris doesn't need the cloud to scale his applications, he uses his laptop."], ["amount", 88097], ["created_at", "2019-05-14 00:00:00"], ["updated_at", "2019-05-14 00:00:00"], ["user_id", 3]]
+  [1m[35m (0.5ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mAuction Create (0.4ms)[0m  [1m[32mINSERT INTO "auctions" ("title", "body", "amount", "created_at", "updated_at", "user_id") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["title", "Try to compress the PCI bus, maybe it will copy the neural bus!"], ["body", "Project managers never ask Chuck Norris for estimations... ever."], ["amount", 47838], ["created_at", "2018-01-02 00:00:00"], ["updated_at", "2018-01-02 00:00:00"], ["user_id", 67]]
+  [1m[35m (0.7ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mAuction Create (0.4ms)[0m  [1m[32mINSERT INTO "auctions" ("title", "body", "amount", "created_at", "updated_at", "user_id") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["title", "Indexing the interface won't do anything, we need to connect the open-source ssl alarm!"], ["body", "Chuck Norris has root access to your system."], ["amount", 37982], ["created_at", "2019-10-08 00:00:00"], ["updated_at", "2019-10-08 00:00:00"], ["user_id", 31]]
+  [1m[35m (0.6ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mAuction Create (0.4ms)[0m  [1m[32mINSERT INTO "auctions" ("title", "body", "amount", "created_at", "updated_at", "user_id") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["title", "We need to compress the back-end AI driver!"], ["body", "There is nothing regular about Chuck Norris' expressions."], ["amount", 50377], ["created_at", "2016-09-19 00:00:00"], ["updated_at", "2016-09-19 00:00:00"], ["user_id", 11]]
+  [1m[35m (0.6ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mAuction Create (0.4ms)[0m  [1m[32mINSERT INTO "auctions" ("title", "body", "amount", "created_at", "updated_at", "user_id") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["title", "You can't transmit the matrix without generating the neural CSS feed!"], ["body", "Chuck Norris doesn't need a java compiler, he goes straight to .war"], ["amount", 60169], ["created_at", "2017-10-15 00:00:00"], ["updated_at", "2017-10-15 00:00:00"], ["user_id", 71]]
+  [1m[35m (0.6ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mAuction Load (0.7ms)[0m  [1m[34mSELECT "auctions".* FROM "auctions"[0m
+  [1m[35m (1.8ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (22.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Create (3.3ms)[0m  [1m[32mINSERT INTO "users" ("first_name", "last_name", "email", "password_digest", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["first_name", "Lynwood"], ["last_name", "McClure"], ["email", "lynwood.mcclure@example.com"], ["password_digest", "qweqwe"], ["created_at", "2021-01-06 19:42:58.552578"], ["updated_at", "2021-01-06 19:42:58.552578"]]
+  [1m[35m (1.7ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.5ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Create (1.0ms)[0m  [1m[32mINSERT INTO "users" ("first_name", "last_name", "email", "password_digest", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["first_name", "Jeffery"], ["last_name", "Franecki"], ["email", "jeffery.franecki@example.com"], ["password_digest", "qweqwe"], ["created_at", "2021-01-06 19:42:58.591305"], ["updated_at", "2021-01-06 19:42:58.591305"]]
+  [1m[35m (24.8ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Create (0.7ms)[0m  [1m[32mINSERT INTO "users" ("first_name", "last_name", "email", "password_digest", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["first_name", "Boyce"], ["last_name", "Sauer"], ["email", "boyce.sauer@example.com"], ["password_digest", "qweqwe"], ["created_at", "2021-01-06 19:42:58.629361"], ["updated_at", "2021-01-06 19:42:58.629361"]]
+  [1m[35m (0.7ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.4ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Create (0.9ms)[0m  [1m[32mINSERT INTO "users" ("first_name", "last_name", "email", "password_digest", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["first_name", "Claudie"], ["last_name", "Renner"], ["email", "claudie.renner@example.com"], ["password_digest", "qweqwe"], ["created_at", "2021-01-06 19:42:58.637533"], ["updated_at", "2021-01-06 19:42:58.637533"]]
+  [1m[35m (0.8ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (24.9ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Create (0.5ms)[0m  [1m[32mINSERT INTO "users" ("first_name", "last_name", "email", "password_digest", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["first_name", "Krista"], ["last_name", "Mitchell"], ["email", "krista.mitchell@example.com"], ["password_digest", "qweqwe"], ["created_at", "2021-01-06 19:42:58.649787"], ["updated_at", "2021-01-06 19:42:58.649787"]]
+  [1m[35m (0.8ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Create (0.5ms)[0m  [1m[32mINSERT INTO "users" ("first_name", "last_name", "email", "password_digest", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["first_name", "Shaunna"], ["last_name", "Huel"], ["email", "shaunna.huel@example.com"], ["password_digest", "qweqwe"], ["created_at", "2021-01-06 19:42:58.683223"], ["updated_at", "2021-01-06 19:42:58.683223"]]
+  [1m[35m (0.6ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Create (0.9ms)[0m  [1m[32mINSERT INTO "users" ("first_name", "last_name", "email", "password_digest", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["first_name", "Delmy"], ["last_name", "Powlowski"], ["email", "delmy.powlowski@example.com"], ["password_digest", "qweqwe"], ["created_at", "2021-01-06 19:42:58.690623"], ["updated_at", "2021-01-06 19:42:58.690623"]]
+  [1m[35m (0.8ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (24.7ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Create (0.6ms)[0m  [1m[32mINSERT INTO "users" ("first_name", "last_name", "email", "password_digest", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["first_name", "Truman"], ["last_name", "Goyette"], ["email", "truman.goyette@example.com"], ["password_digest", "qweqwe"], ["created_at", "2021-01-06 19:42:58.700390"], ["updated_at", "2021-01-06 19:42:58.700390"]]
+  [1m[35m (0.7ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Create (0.6ms)[0m  [1m[32mINSERT INTO "users" ("first_name", "last_name", "email", "password_digest", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["first_name", "Antonia"], ["last_name", "Willms"], ["email", "antonia.willms@example.com"], ["password_digest", "qweqwe"], ["created_at", "2021-01-06 19:42:58.733667"], ["updated_at", "2021-01-06 19:42:58.733667"]]
+  [1m[35m (1.1ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Create (1.1ms)[0m  [1m[32mINSERT INTO "users" ("first_name", "last_name", "email", "password_digest", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["first_name", "Maryam"], ["last_name", "Waelchi"], ["email", "maryam.waelchi@example.com"], ["password_digest", "qweqwe"], ["created_at", "2021-01-06 19:42:58.743942"], ["updated_at", "2021-01-06 19:42:58.743942"]]
+  [1m[35m (25.6ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mUser Load (2.5ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  [1m[35m (19.0ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mAuction Create (2.9ms)[0m  [1m[32mINSERT INTO "auctions" ("title", "body", "amount", "created_at", "updated_at", "user_id") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["title", "I'll calculate the virtual RSS sensor, that should microchip the XML sensor!"], ["body", "When Chuck Norris gives a method an argument, the method loses."], ["amount", 16001], ["created_at", "2020-09-05 00:00:00"], ["updated_at", "2020-09-05 00:00:00"], ["user_id", 48]]
+  [1m[35m (0.9ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mAuction Create (1.2ms)[0m  [1m[32mINSERT INTO "auctions" ("title", "body", "amount", "created_at", "updated_at", "user_id") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["title", "Try to parse the XSS application, maybe it will navigate the multi-byte port!"], ["body", "Chuck Norris doesn't delete files, he blows them away."], ["amount", 98536], ["created_at", "2016-05-14 00:00:00"], ["updated_at", "2016-05-14 00:00:00"], ["user_id", 104]]
+  [1m[35m (26.0ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mAuction Create (0.7ms)[0m  [1m[32mINSERT INTO "auctions" ("title", "body", "amount", "created_at", "updated_at", "user_id") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["title", "Try to program the GB interface, maybe it will generate the 1080p monitor!"], ["body", "Chuck Norris rewrote the Google search engine from scratch."], ["amount", 94978], ["created_at", "2016-04-21 00:00:00"], ["updated_at", "2016-04-21 00:00:00"], ["user_id", 51]]
+  [1m[35m (1.0ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mAuction Create (25.4ms)[0m  [1m[32mINSERT INTO "auctions" ("title", "body", "amount", "created_at", "updated_at", "user_id") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["title", "Try to connect the IB capacitor, maybe it will parse the back-end card!"], ["body", "Chuck Norris doesn't have performance bottlenecks. He just makes the universe wait its turn."], ["amount", 30797], ["created_at", "2018-09-18 00:00:00"], ["updated_at", "2018-09-18 00:00:00"], ["user_id", 107]]
+  [1m[35m (0.9ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.4ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mAuction Create (0.8ms)[0m  [1m[32mINSERT INTO "auctions" ("title", "body", "amount", "created_at", "updated_at", "user_id") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["title", "Use the optical SAS hard drive, then you can connect the digital circuit!"], ["body", "Chuck Norris can write multi-threaded applications with a single thread."], ["amount", 45798], ["created_at", "2017-12-04 00:00:00"], ["updated_at", "2017-12-04 00:00:00"], ["user_id", 31]]
+  [1m[35m (1.0ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mAuction Create (25.4ms)[0m  [1m[32mINSERT INTO "auctions" ("title", "body", "amount", "created_at", "updated_at", "user_id") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["title", "We need to copy the back-end HTTP protocol!"], ["body", "Chuck Norris can solve the Towers of Hanoi in one move."], ["amount", 68355], ["created_at", "2020-04-08 00:00:00"], ["updated_at", "2020-04-08 00:00:00"], ["user_id", 102]]
+  [1m[35m (0.7ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mAuction Create (0.6ms)[0m  [1m[32mINSERT INTO "auctions" ("title", "body", "amount", "created_at", "updated_at", "user_id") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["title", "You can't connect the panel without generating the primary PNG circuit!"], ["body", "When Chuck Norris points to null, null quakes in fear."], ["amount", 55202], ["created_at", "2020-12-25 00:00:00"], ["updated_at", "2020-12-25 00:00:00"], ["user_id", 98]]
+  [1m[35m (0.8ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.4ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mAuction Create (25.9ms)[0m  [1m[32mINSERT INTO "auctions" ("title", "body", "amount", "created_at", "updated_at", "user_id") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["title", "I'll compress the cross-platform SMTP alarm, that should feed the SMTP system!"], ["body", "Chuck Norris went out of an infinite loop."], ["amount", 94571], ["created_at", "2020-10-28 00:00:00"], ["updated_at", "2020-10-28 00:00:00"], ["user_id", 77]]
+  [1m[35m (0.9ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mAuction Create (0.5ms)[0m  [1m[32mINSERT INTO "auctions" ("title", "body", "amount", "created_at", "updated_at", "user_id") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["title", "The XSS port is down, index the online monitor so we can synthesize the SDD firewall!"], ["body", "Chuck Norris does not use revision control software. None of his code has ever needed revision."], ["amount", 12506], ["created_at", "2018-03-22 00:00:00"], ["updated_at", "2018-03-22 00:00:00"], ["user_id", 13]]
+  [1m[35m (0.9ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.4ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mAuction Create (26.2ms)[0m  [1m[32mINSERT INTO "auctions" ("title", "body", "amount", "created_at", "updated_at", "user_id") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["title", "Try to input the AI monitor, maybe it will index the back-end array!"], ["body", "Chuck Norris doesn't need garbage collection because he doesn't call .Dispose(), he calls .DropKick()."], ["amount", 7357], ["created_at", "2019-02-16 00:00:00"], ["updated_at", "2019-02-16 00:00:00"], ["user_id", 89]]
+  [1m[35m (0.8ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mAuction Create (1.0ms)[0m  [1m[32mINSERT INTO "auctions" ("title", "body", "amount", "created_at", "updated_at", "user_id") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["title", "If we reboot the microchip, we can get to the RSS microchip through the auxiliary AI application!"], ["body", "Chuck Norris can write infinite recursion functions... and have them return."], ["amount", 86946], ["created_at", "2018-02-01 00:00:00"], ["updated_at", "2018-02-01 00:00:00"], ["user_id", 28]]
+  [1m[35m (0.8ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mAuction Create (25.9ms)[0m  [1m[32mINSERT INTO "auctions" ("title", "body", "amount", "created_at", "updated_at", "user_id") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["title", "The SAS alarm is down, back up the haptic alarm so we can program the SSL port!"], ["body", "Chuck Norris finished World of Warcraft."], ["amount", 67745], ["created_at", "2018-02-25 00:00:00"], ["updated_at", "2018-02-25 00:00:00"], ["user_id", 104]]
+  [1m[35m (0.8ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mAuction Create (1.1ms)[0m  [1m[32mINSERT INTO "auctions" ("title", "body", "amount", "created_at", "updated_at", "user_id") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["title", "We need to hack the auxiliary EXE circuit!"], ["body", "Chuck Norris can't test for equality because he has no equal."], ["amount", 17376], ["created_at", "2018-04-11 00:00:00"], ["updated_at", "2018-04-11 00:00:00"], ["user_id", 14]]
+  [1m[35m (0.9ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mAuction Create (0.8ms)[0m  [1m[32mINSERT INTO "auctions" ("title", "body", "amount", "created_at", "updated_at", "user_id") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["title", "If we copy the monitor, we can get to the CSS hard drive through the multi-byte IB protocol!"], ["body", "Chuck Norris doesn't need a java compiler, he goes straight to .war"], ["amount", 30692], ["created_at", "2018-10-11 00:00:00"], ["updated_at", "2018-10-11 00:00:00"], ["user_id", 29]]
+  [1m[35m (24.7ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mAuction Create (0.6ms)[0m  [1m[32mINSERT INTO "auctions" ("title", "body", "amount", "created_at", "updated_at", "user_id") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["title", "If we hack the firewall, we can get to the RAM application through the redundant COM hard drive!"], ["body", "Chuck Norris can write multi-threaded applications with a single thread."], ["amount", 57355], ["created_at", "2017-07-05 00:00:00"], ["updated_at", "2017-07-05 00:00:00"], ["user_id", 15]]
+  [1m[35m (0.9ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.4ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mAuction Create (26.8ms)[0m  [1m[32mINSERT INTO "auctions" ("title", "body", "amount", "created_at", "updated_at", "user_id") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["title", "Bypassing the transmitter won't do anything, we need to transmit the wireless jbod feed!"], ["body", "Chuck Norris hosting is 101% uptime guaranteed."], ["amount", 31167], ["created_at", "2020-10-10 00:00:00"], ["updated_at", "2020-10-10 00:00:00"], ["user_id", 49]]
+  [1m[35m (1.0ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mAuction Create (1.3ms)[0m  [1m[32mINSERT INTO "auctions" ("title", "body", "amount", "created_at", "updated_at", "user_id") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["title", "You can't transmit the circuit without generating the bluetooth RSS interface!"], ["body", "Chuck Norris can divide by zero."], ["amount", 45782], ["created_at", "2020-01-14 00:00:00"], ["updated_at", "2020-01-14 00:00:00"], ["user_id", 11]]
+  [1m[35m (1.1ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (23.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mAuction Create (0.8ms)[0m  [1m[32mINSERT INTO "auctions" ("title", "body", "amount", "created_at", "updated_at", "user_id") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["title", "Use the multi-byte COM matrix, then you can compress the wireless panel!"], ["body", "Chuck Norris's first program was kill -9."], ["amount", 36823], ["created_at", "2018-10-02 00:00:00"], ["updated_at", "2018-10-02 00:00:00"], ["user_id", 1]]
+  [1m[35m (0.6ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.4ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mAuction Create (1.1ms)[0m  [1m[32mINSERT INTO "auctions" ("title", "body", "amount", "created_at", "updated_at", "user_id") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["title", "You can't hack the interface without bypassing the back-end EXE alarm!"], ["body", "Chuck Norris can write multi-threaded applications with a single thread."], ["amount", 8152], ["created_at", "2018-01-20 00:00:00"], ["updated_at", "2018-01-20 00:00:00"], ["user_id", 89]]
+  [1m[35m (29.2ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.4ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mAuction Create (0.7ms)[0m  [1m[32mINSERT INTO "auctions" ("title", "body", "amount", "created_at", "updated_at", "user_id") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["title", "I'll generate the digital AGP interface, that should port the PNG circuit!"], ["body", "Chuck Norris can unit test an entire application with a single assert."], ["amount", 33184], ["created_at", "2017-02-16 00:00:00"], ["updated_at", "2017-02-16 00:00:00"], ["user_id", 84]]
+  [1m[35m (1.0ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mAuction Load (2.6ms)[0m  [1m[34mSELECT "auctions".* FROM "auctions"[0m
