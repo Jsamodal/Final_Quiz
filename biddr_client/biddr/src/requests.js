@@ -1,14 +1,12 @@
 const BASE_URL = `http://localhost:3000/api/v1`;
 
-export const Question = {
+export const Auction = {
   index() {
     return fetch(`${BASE_URL}/auctions`,{
       headers: {
         'Cache-Control': 'no-cache'
       }})
       .then(res => {
-        // res object has a method .json() that will parse the body of response and return it as json
-        // console.log(res);
         return res.json();
       })
   },
@@ -27,7 +25,8 @@ export const Question = {
   show(id) {
     return fetch(`${BASE_URL}/auctions/${id}`)
       .then(res => res.json());
-  },
+    },
+  
   update(id, params) {
     return fetch(`${BASE_URL}/auctions/${id}`, {
       method: 'PATCH',
@@ -38,6 +37,7 @@ export const Question = {
       body: JSON.stringify(params)
     }).then(res => res.json());
   },
+  
   destroy(id){
     return fetch(`${BASE_URL}/auctions/${id}`,{
       method:"DELETE",
@@ -75,4 +75,20 @@ export const Session = {
       credentials: 'include'
     }).then((res) => res.json())
   }
+}
+
+export const User = {
+ 
+  create(params) {
+      return fetch(`${BASE_URL}/users`, {
+        method: 'POST',
+        credentials: 'include',
+        headers: {
+          'Content-Type': 'application/json'
+        }, 
+        body: JSON.stringify(params)
+       })
+  }
+
+
 }

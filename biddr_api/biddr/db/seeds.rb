@@ -43,10 +43,18 @@ auctions.each do |a|
     5.times do
         Bid.create(
             bid: 100,
-            question_id: a.id,
+            auction_id: a.id,
             user: users.sample
         )
     end
 end
 
 bids = Bid.all
+
+super_user=User.create(
+    first_name: 'Jon',
+    last_name: 'Snow',
+    email:"jonsnow@hotmail.com",
+    password: 'qweqwe',
+
+)
